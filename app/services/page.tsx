@@ -1,7 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { serviceDetails } from "@/lib/services";
+import { getAllServices } from "@/lib/models/service";
 
 export const metadata: Metadata = {
   title: "Services | EZ Process Solution",
@@ -50,7 +50,8 @@ const whyUs = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const serviceDetails = await getAllServices();
   return (
     <div className="min-h-screen">
       <main>

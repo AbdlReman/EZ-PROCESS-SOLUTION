@@ -1,9 +1,7 @@
 ﻿import BlogCard from "./BlogCard";
-import { getBlogsSortedByDate } from "@/lib/blogs";
+import type { BlogPost } from "@/lib/models/blog";
 
-export default function BlogListingContent() {
-  const posts = getBlogsSortedByDate();
-
+export default function BlogListingContent({ posts }: { posts: BlogPost[] }) {
   return (
     <div className="min-h-screen">
       <main>

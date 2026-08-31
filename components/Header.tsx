@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 const navLinks: [string, string][] = [
   ["Services", "/services"],
@@ -16,6 +17,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -45,6 +47,27 @@ export default function Header() {
               {label}
             </Link>
           ))}
+          {session?.user?.role === "admin" && (
+            <Link href="/admin" onClick={() => setMenuOpen(false)}>
+              Admin
+            </Link>
+          )}
+          {session ? (
+            <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setMenuOpen(false);
+                signOut();
+              }}
+            >
+              Logout
+            </Link>
+          ) : (
+            <Link href="/login" onClick={() => setMenuOpen(false)}>
+              Login
+            </Link>
+          )}
           <Link href="/contact" onClick={() => setMenuOpen(false)} className="brelyx-btn-talk">
             Let&apos;s Talk
           </Link>
@@ -78,6 +101,25 @@ export default function Header() {
           </nav>
 
           <div className="brelyx-header-actions">
+            {session?.user?.role === "admin" && (
+              <Link href="/admin" className="brelyx-nav-link hidden md:inline-flex">
+                Admin
+              </Link>
+            )}
+            {session ? (
+              <button
+                type="button"
+                onClick={() => signOut()}
+                className="brelyx-nav-link hidden md:inline-flex"
+                style={{ background: "none", border: "none", cursor: "pointer" }}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link href="/login" className="brelyx-nav-link hidden md:inline-flex">
+                Login
+              </Link>
+            )}
             <Link href="/contact" className="brelyx-btn-talk hidden md:inline-flex">
               Let&apos;s Talk
             </Link>

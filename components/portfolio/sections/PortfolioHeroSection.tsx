@@ -1,8 +1,6 @@
 ﻿"use client";
 
-import { projects } from "@/lib/projects";
-
-export default function PortfolioHeroSection() {
+export default function PortfolioHeroSection({ projectCount }: { projectCount: number }) {
   return (
     <section className="hero-purple-section" style={{ paddingBottom: "5rem" }}>
       <div
@@ -32,7 +30,7 @@ export default function PortfolioHeroSection() {
           border: "1px solid rgba(255,255,255,0.15)",
         }}>
           <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3FE0D0", display: "inline-block", flexShrink: 0 }} />
-          {projects.length} projects across multiple industries
+          {projectCount} projects across multiple industries
         </div>
       </div>
     </section>

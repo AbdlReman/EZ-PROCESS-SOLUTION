@@ -2,12 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { projects } from "@/lib/projects";
-import { portfolioCategories } from "../data/portfolio-constants";
+import { useMemo, useState } from "react";
+import type { Project } from "@/lib/models/project";
 
-export default function PortfolioGridSection() {
+export default function PortfolioGridSection({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const portfolioCategories = useMemo(
+    () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
+    [projects]
+  );
 
   const filtered =
     activeCategory === "All"

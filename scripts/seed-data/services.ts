@@ -1,19 +1,6 @@
-﻿export interface ServiceDetail {
-  slug: string;
-  title: string;
-  tagline: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  category: string;
-  features: string[];
-  deliverables: string[];
-  tools: string[];
-  process: { step: string; title: string; desc: string }[];
-  highlight?: string;
-}
+import type { ServiceInput } from "../../lib/models/service";
 
-export const serviceDetails: ServiceDetail[] = [
+export const legacyServices: ServiceInput[] = [
   {
     slug: "web-custom-software",
     title: "Web & Custom Software",
@@ -207,7 +194,3 @@ export const serviceDetails: ServiceDetail[] = [
     highlight: "Our strategic engagements have helped clients raise $40M+ in funding and reduce time-to-market by an average of 30%.",
   },
 ];
-
-export function getServiceBySlug(slug: string): ServiceDetail | undefined {
-  return serviceDetails.find((s) => s.slug === slug);
-}

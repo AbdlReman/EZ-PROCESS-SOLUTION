@@ -1,20 +1,6 @@
-﻿export interface Project {
-  slug: string;
-  title: string;
-  tagline: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  detailImages?: string[];
-  category: string;
-  tech: string[];
-  url?: string;
-  features: string[];
-  year?: string;
-  highlight?: string;
-}
+import type { ProjectInput } from "../../lib/models/project";
 
-export const projects: Project[] = [
+export const legacyProjects: ProjectInput[] = [
   {
     slug: "qurvia-academy",
     title: "Qurvia Academy",
@@ -55,7 +41,7 @@ export const projects: Project[] = [
       "Mobile-responsive design",
     ],
     year: "2024",
-  }, 
+  },
   {
     slug: "delbari",
     title: "Delbari Matrimonial",
@@ -295,7 +281,3 @@ export const projects: Project[] = [
     year: "2022",
   },
 ];
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
-}

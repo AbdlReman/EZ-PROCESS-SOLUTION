@@ -1,6 +1,6 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
-import type { BlogPost } from "@/lib/blogs";
+import type { BlogPost } from "@/lib/models/blog";
 
 function formatBlogDate(iso: string) {
   return new Intl.DateTimeFormat("en", {
