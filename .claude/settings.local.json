@@ -1,0 +1,19 @@
+﻿{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.blockmob.io)",
+      "Bash(grep -n \"hover:text-white\\\\|hover\\\\\\\\\\\\\\\\:text-white\\\\|md:inline-flex\\\\|md\\\\\\\\\\\\\\\\:inline-flex\\\\|\\\\.hidden\" \"C:\\\\Users\\\\Hp\\\\brelyx-solution\\\\app\\\\globals.css\")",
+      "Bash(grep -n \"scale-105\\\\|\\\\.mt-1\\\\\\\\.5\\\\|\\\\.gap-2\\\\\\\\.5\\\\|\\\\.p-3\\\\\\\\.5\\\\|h-\\\\\\\\[calc\" \"C:\\\\Users\\\\Hp\\\\brelyx-solution\\\\app\\\\globals.css\")",
+      "Bash(grep -n \"bg-cyan\\\\|\\\\.bg-cyan\\\\|\\\\.hover:text-cyan\\\\|hover\\\\\\\\\\\\\\\\:text-cyan\\\\|\\\\.top-1\\\\/2\\\\|translate-y\" \"C:\\\\Users\\\\Hp\\\\brelyx-solution\\\\app\\\\globals.css\")",
+      "Bash(grep -n \"sm\\\\\\\\\\\\\\\\:hidden\\\\|sm\\\\\\\\\\\\\\\\:inline-flex\\\\|hover\\\\\\\\\\\\\\\\:text-cyan\\\\|md\\\\\\\\\\\\\\\\:block\\\\|\\\\.bg-surface\\\\b\" \"C:\\\\Users\\\\Hp\\\\brelyx-solution\\\\app\\\\globals.css\")",
+      "Bash(grep -n \"sm.w-auto\\\\|sm.flex-row\\\\|sm.items-center\\\\|sm.justify-between\\\\|pl-3\\\\b\\\\|\\\\.mx-auto\\\\b\\\\|top-1.2\\\\b\\\\|right-3\\\\\\\\.5\\\\|gap-2\\\\\\\\.5\\\\b\" \"C:\\\\Users\\\\Hp\\\\brelyx-solution\\\\app\\\\globals.css\")",
+      "Bash(npm run:*)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(node -e \"const {serviceDetails} = require\\('./lib/services.ts'\\); console.log\\(serviceDetails[0].slug\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/services/web-custom-software\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Hp\\\\Desktop\\\\BRELYX\" -Recurse -File | ForEach-Object { $_.FullName })"
+    ]
+  }
+}

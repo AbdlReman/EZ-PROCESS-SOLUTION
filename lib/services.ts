@@ -1,0 +1,213 @@
+﻿export interface ServiceDetail {
+  slug: string;
+  title: string;
+  tagline: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  category: string;
+  features: string[];
+  deliverables: string[];
+  tools: string[];
+  process: { step: string; title: string; desc: string }[];
+  highlight?: string;
+}
+
+export const serviceDetails: ServiceDetail[] = [
+  {
+    slug: "web-custom-software",
+    title: "Web & Custom Software",
+    tagline: "High-performance web platforms engineered to scale.",
+    category: "Development",
+    description: "We design and build modern web applications, SaaS platforms, and enterprise software that power your business — from architecture through deployment.",
+    longDescription: "From multi-tenant SaaS to complex internal tooling, our engineering teams deliver web and custom software that is fast, secure, and maintainable at scale. We work with your product team to define architecture, pick the right stack, and ship iteratively — ensuring every release adds measurable value. Our frontend engineers craft pixel-perfect, accessible interfaces, while our backend engineers build robust APIs and data layers that handle real-world load.",
+    image: "/images/services/web.jpg",
+    features: [
+      "Multi-tenant SaaS platform architecture",
+      "B2B & B2C customer portals",
+      "API-first microservices & REST/GraphQL",
+      "Design systems & component libraries",
+      "Legacy modernisation & re-platforming",
+      "Performance optimisation & Core Web Vitals",
+    ],
+    deliverables: [
+      "Technical architecture document",
+      "Production-ready codebase with CI/CD",
+      "Automated test suite (unit + integration)",
+      "Deployment runbook & monitoring setup",
+      "Post-launch support & handover",
+    ],
+    tools: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "AWS", "Docker"],
+    process: [
+      { step: "01", title: "Discovery", desc: "We audit your requirements, define scope, and align on technical strategy and constraints." },
+      { step: "02", title: "Architecture", desc: "We produce an architecture blueprint, data models, and API contracts before a line of code is written." },
+      { step: "03", title: "Agile Build", desc: "Two-week sprints with demo sessions keep you in the loop and ensure scope is on track." },
+      { step: "04", title: "QA & Launch", desc: "End-to-end testing, staging, and a phased rollout to production with zero-downtime deployment." },
+    ],
+    highlight: "We've shipped over 40 web platforms across fintech, healthcare, and e-commerce — all on time and on budget.",
+  },
+  {
+    slug: "mobile-experience",
+    title: "Mobile & Experience",
+    tagline: "Native-quality apps. Consistent journeys on every device.",
+    category: "Mobile",
+    description: "We build iOS, Android, and cross-platform mobile experiences that users love — from first tap to long-term retention.",
+    longDescription: "Mobile is often the primary touchpoint your customers have with your brand. Our mobile teams blend product thinking with engineering craft to deliver apps that feel native, perform under load, and drive measurable engagement. Whether you need a consumer app from scratch or a complex B2B tool, we cover the full journey — from UX research and prototyping to app store submission and live ops.",
+    image: "/images/services/mobile.jpg",
+    features: [
+      "iOS, Android & cross-platform (React Native, Flutter)",
+      "Product discovery & UX workshops",
+      "Rapid prototyping & usability testing",
+      "Offline-first architecture",
+      "Push notifications & in-app messaging",
+      "App store optimisation & submission",
+    ],
+    deliverables: [
+      "UX research report & user journey maps",
+      "High-fidelity prototype",
+      "Production iOS & Android builds",
+      "App Store & Google Play submission",
+      "Analytics & crash reporting setup",
+    ],
+    tools: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Expo", "Figma", "Fastlane"],
+    process: [
+      { step: "01", title: "Research", desc: "User interviews, competitor analysis, and persona definition to ground every decision in real insight." },
+      { step: "02", title: "Design", desc: "Wireframes, design system, and an interactive prototype — validated before development starts." },
+      { step: "03", title: "Build", desc: "Platform-specific or cross-platform engineering with weekly TestFlight/beta releases for feedback." },
+      { step: "04", title: "Launch", desc: "Store submission, staged rollout, live monitoring, and a 30-day post-launch support window." },
+    ],
+    highlight: "Our apps average a 4.7-star rating across stores, with 60%+ day-30 retention on consumer products.",
+  },
+  {
+    slug: "data-ai",
+    title: "Data & AI",
+    tagline: "Turn your data into decisions. At production scale.",
+    category: "AI & Data",
+    description: "From GenAI copilots to predictive analytics pipelines, we build intelligent systems that automate work and surface insight in real time.",
+    longDescription: "Data is only valuable when it drives action. Our data and AI practice helps businesses move from scattered spreadsheets to unified pipelines, and from static reports to live, predictive dashboards. We design and implement ML models, GenAI-powered features, and data infrastructure that is observable, maintainable, and trusted by the teams that depend on it. We don't build black boxes — we build systems you can explain, audit, and iterate on.",
+    image: "/images/services/ai.jpg",
+    features: [
+      "GenAI copilots & LLM-powered features",
+      "Predictive analytics & ML model development",
+      "Real-time & batch data pipelines",
+      "Business intelligence dashboards",
+      "Process & workflow automation",
+      "RAG systems & vector search",
+    ],
+    deliverables: [
+      "Data architecture & pipeline design",
+      "Trained & evaluated ML models",
+      "BI dashboards with live data",
+      "Model monitoring & drift alerts",
+      "Documentation & team training",
+    ],
+    tools: ["Python", "TensorFlow", "PyTorch", "OpenAI API", "Apache Spark", "BigQuery", "dbt", "Airflow", "LangChain"],
+    process: [
+      { step: "01", title: "Data Audit", desc: "We map your existing data sources, quality issues, and gaps before designing anything." },
+      { step: "02", title: "Modelling", desc: "Feature engineering, model selection, and evaluation against business KPIs — not just accuracy scores." },
+      { step: "03", title: "Integration", desc: "Models and pipelines wired into your product or internal tools via clean APIs and SDKs." },
+      { step: "04", title: "Monitor", desc: "Drift detection, alerting, and scheduled retraining to keep models performing in production." },
+    ],
+    highlight: "Our AI systems have automated millions of decisions per month — from fraud detection to personalised recommendations.",
+  },
+  {
+    slug: "cloud-devops-security",
+    title: "Cloud, DevOps & Security",
+    tagline: "Resilient infrastructure. Built to grow with your business.",
+    category: "Infrastructure",
+    description: "We design, migrate, and operate cloud infrastructures that are secure, observable, and cost-efficient — so your engineering team can ship with confidence.",
+    longDescription: "Slow deploys, opaque incidents, and runaway cloud bills slow companies down at the worst possible time. Our DevOps and cloud engineering practice installs the practices, tooling, and automation that modern engineering teams depend on. From CI/CD pipelines that deploy in minutes to infrastructure-as-code that makes your environment reproducible, we build the foundation that lets your product team move fast without breaking things.",
+    image: "/images/services/devops.jpg",
+    features: [
+      "Cloud architecture design & migration (AWS, Azure, GCP)",
+      "Infrastructure as Code (Terraform, Pulumi)",
+      "CI/CD pipeline implementation",
+      "Container orchestration (Kubernetes, ECS)",
+      "Security hardening & compliance (SOC 2, ISO 27001)",
+      "Cost optimisation & FinOps",
+    ],
+    deliverables: [
+      "Cloud architecture diagrams & IaC codebase",
+      "CI/CD pipeline with automated tests & gates",
+      "Runbooks & incident response playbooks",
+      "Security audit report & remediation plan",
+      "Monitoring dashboards (Datadog, Grafana)",
+    ],
+    tools: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "GitHub Actions", "Datadog", "Vault"],
+    process: [
+      { step: "01", title: "Assessment", desc: "We audit your current setup — architecture, security posture, deployment pipeline, and costs." },
+      { step: "02", title: "Design", desc: "A target-state blueprint with migration plan, tooling choices, and security controls defined upfront." },
+      { step: "03", title: "Implement", desc: "Iterative rollout — starting with the highest-impact changes while keeping production stable." },
+      { step: "04", title: "Operate", desc: "Runbooks, on-call setup, alerting, and optional managed operations handed over to your team." },
+    ],
+    highlight: "We've helped teams cut cloud spend by up to 40% while improving deployment frequency by 5×.",
+  },
+  {
+    slug: "ui-ux-design",
+    title: "UI/UX Design",
+    tagline: "Interfaces that convert. Experiences people return to.",
+    category: "Design",
+    description: "We research, design, and validate digital experiences that reduce friction, build trust, and turn visitors into loyal customers.",
+    longDescription: "Great design isn't decoration — it's the difference between a product that grows and one that churns. Our design practice combines deep UX research with a strong visual craft to create interfaces that feel intuitive, look premium, and perform in the real world. We work closely with your engineering teams to ensure designs ship at high fidelity, and with your product team to ensure every pixel maps to a user or business goal.",
+    image: "/images/uibanner-1.png",
+    features: [
+      "UX research, interviews & journey mapping",
+      "Information architecture & user flows",
+      "Wireframing & interactive prototyping",
+      "Design system creation & documentation",
+      "Accessibility compliance (WCAG 2.1 AA)",
+      "Usability testing & iteration",
+    ],
+    deliverables: [
+      "UX research report & insight synthesis",
+      "User flow diagrams & site map",
+      "High-fidelity Figma prototype",
+      "Full design system (components, tokens, guidelines)",
+      "Developer handoff with annotated specs",
+    ],
+    tools: ["Figma", "FigJam", "Framer", "Storybook", "Hotjar", "Maze", "Lottie", "Zeroheight"],
+    process: [
+      { step: "01", title: "Discover", desc: "Stakeholder interviews, user research, and a competitive audit to establish the design opportunity." },
+      { step: "02", title: "Define", desc: "User personas, jobs-to-be-done, and success metrics that anchor every design decision." },
+      { step: "03", title: "Design", desc: "From rough wireframes to polished, interactive high-fidelity prototypes, reviewed at each stage." },
+      { step: "04", title: "Validate", desc: "Usability testing sessions with real users, then rapid iteration before developer handoff." },
+    ],
+    highlight: "Products we've redesigned see an average 35% improvement in conversion and a 50% drop in support tickets.",
+  },
+  {
+    slug: "digital-strategy-consulting",
+    title: "Digital Strategy & Product Consulting",
+    tagline: "Align your technology investments with business outcomes.",
+    category: "Strategy",
+    description: "Senior advisors who help you define the right product, pick the right technology, and execute with confidence — from vision to market.",
+    longDescription: "Technology decisions made without strategy become technical debt. Our consulting practice brings senior product and technology leaders to your table — helping you cut through complexity, align stakeholders, and build a roadmap that your engineering teams can actually execute. Whether you're a founder defining your MVP, a scale-up re-platforming, or an enterprise modernising a legacy estate, we bring the experience to ask the hard questions and make the right calls.",
+    image: "/images/services/digitalstrategy.jpg",
+    features: [
+      "Product vision, strategy & roadmap definition",
+      "Technology stack selection & architecture advisory",
+      "Go-to-market planning & launch strategy",
+      "OKR framework & KPI definition",
+      "Build vs. buy vs. partner analysis",
+      "Digital transformation programme design",
+    ],
+    deliverables: [
+      "Product strategy document & 12-month roadmap",
+      "Technology evaluation & recommendation report",
+      "Go-to-market playbook",
+      "OKR framework with baseline metrics",
+      "Executive presentation & board-ready materials",
+    ],
+    tools: ["Productboard", "Miro", "Notion", "Amplitude", "Mixpanel", "Figma", "Linear", "Confluence"],
+    process: [
+      { step: "01", title: "Immersion", desc: "Deep dive into your business model, team, existing technology, and market position." },
+      { step: "02", title: "Diagnose", desc: "We identify the critical constraints — technical, organisational, or market — that are limiting growth." },
+      { step: "03", title: "Strategise", desc: "A clear, prioritised roadmap with the rationale, trade-offs, and success criteria for each initiative." },
+      { step: "04", title: "Activate", desc: "We embed with your team during early execution to ensure strategy translates into shipped outcomes." },
+    ],
+    highlight: "Our strategic engagements have helped clients raise $40M+ in funding and reduce time-to-market by an average of 30%.",
+  },
+];
+
+export function getServiceBySlug(slug: string): ServiceDetail | undefined {
+  return serviceDetails.find((s) => s.slug === slug);
+}

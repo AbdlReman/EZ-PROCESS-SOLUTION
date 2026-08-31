@@ -1,0 +1,37 @@
+{
+  "blogs": [
+    {
+      "slug": "from-monolith-to-composable-commerce",
+      "title": "From Monolith to Composable: Lessons from Replatforming E‑commerce at Scale",
+      "excerpt": "How we helped a fashion resale brand move off a legacy stack, adopt headless APIs, and ship faster without freezing the roadmap.",
+      "date": "2024-11-18",
+      "author": "EZ Process Solution",
+      "category": "Engineering",
+      "readTime": "7 min read",
+      "image": "/images/webportfolio_1.png",
+      "content": "## Where we started\n\nRetail teams rarely get a quiet quarter to rewrite everything. When this client came to us, **checkout was brittle**, campaigns required developer intervention, and peak traffic meant paging someone at 2 a.m. The goal was not “use the newest framework” — it was **predictable releases**, clearer ownership, and room to experiment with discovery and recommendations.\n\n![Composable storefront architecture overview](/images/webportfolio_1.png)\n\n## Thin slice first\n\nWe started with a thin slice: product catalog and cart behind **stable APIs**, with the storefront consuming those contracts from day one. That let merchandising iterate on the UI while we hardened inventory and pricing services. Feature flags and progressive rollout meant we could compare old and new paths in production without betting the business on a single cutover.\n\nUseful references:\n\n- [Next.js documentation](https://nextjs.org/docs)\n- [Our portfolio](/portfolio)\n\n## Why composable wins\n\nComposable architecture pays off when **boundaries match how teams work**. Once search and recommendations had their own lifecycle, data science could ship model updates without waiting on a full platform release. The result was a faster feedback loop: experiments moved from idea to measurable impact in weeks instead of quarters.\n\n> Invest in observability before you invest in more microservices.\n\n## Checklist before you migrate\n\nIf you are considering a similar move, invest early in **observability**, contract tests between services, and a clear rollback story. The technology is solvable; **aligning teams around outcomes** is what makes composable commerce actually stick.\n\nContact [our team](/contact) if you want to pressure-test your roadmap."
+    },
+    {
+      "slug": "shipping-genai-features-without-breaking-production",
+      "title": "Shipping GenAI Features Without Breaking Production",
+      "excerpt": "Guardrails, evaluation, and rollout patterns we use when clients ask for copilots, summarisation, or retrieval-augmented workflows.",
+      "date": "2024-10-07",
+      "author": "EZ Process Solution",
+      "category": "AI & Data",
+      "readTime": "6 min read",
+      "image": "/images/webportfolio_2.png",
+      "content": "## Outcomes over demos\n\n**Generative AI demos are easy**; production systems that stay reliable under real user behaviour are not. Our clients usually want outcomes — faster support, cleaner reporting, better search — not a slide deck. That means treating models as **one component** inside a broader pipeline: ingestion, retrieval, policy, monitoring, and human review where it matters.\n\n![Analytics and ML pipeline diagram](/images/webportfolio_2.png)\n\n## Measure before you ship\n\nWe recommend starting with **explicit success metrics** and a baseline. If you cannot measure quality or latency before you ship, you will not know whether a change helped. For retrieval-heavy flows, we version embeddings and documents, log prompts and responses with redaction rules, and **segment traffic** so new behaviour can be validated on a subset of users first.\n\nExternal resources we often share:\n\n- [Google Cloud AI best practices](https://cloud.google.com/docs/ai-ml)\n- [OWASP LLM risks](https://owasp.org/www-project-top-10-for-large-language-model-applications/)\n\n## Guardrails in the architecture\n\nGuardrails belong in the architecture, **not as an afterthought**. Rate limits, schema validation for tool calls, and allow-listed actions prevent runaway automation. When outputs feed customer-facing UI, cached summaries and graceful fallbacks keep the experience stable even when upstream APIs spike in latency.\n\nThe teams that win with GenAI iterate like any other product: **ship small**, measure, tighten evaluation, expand. Curiosity is essential; discipline is what keeps it in production.\n\n---\n\nRead more on [the blog](/blog) or [get in touch](/contact)."
+    },
+    {
+      "slug": "design-systems-that-survive-handoff",
+      "title": "Design Systems That Survive Handoff to Engineering",
+      "excerpt": "Tokens, documentation, and governance practices that keep UI consistent when multiple squads ship in parallel.",
+      "date": "2024-09-22",
+      "author": "EZ Process Solution",
+      "category": "Design",
+      "readTime": "5 min read",
+      "image": "/images/uibanner-1.png",
+      "content": "## Adoption beats aesthetics\n\nA design system is only as strong as its **adoption**. Beautiful Figma libraries stall when naming drifts from code, when components exist in theory but not in Storybook, or when every team forks tokens because the shared palette cannot handle their edge cases.\n\n![Design system UI kit and tokens](/images/uibanner-1.png)\n\n## Tokens as the contract\n\nWe anchor on **design tokens** — colour, space, type, elevation — published as a single source consumed by both design tools and the codebase. That removes debates about whether a margin should be 12px or 16px; **the token is the contract**. Components then compose from those primitives with clear variants and accessibility notes baked into documentation.\n\nQuick wins:\n\n1. Name tokens once, publish everywhere\n2. Ship **Storybook** as the source of truth for behaviour\n3. Add visual regression in CI\n\n## Governance without gridlock\n\nGovernance does not mean a committee that blocks every change. It means a lightweight **RFC process** for new patterns, visual regression checks in CI, and owners who can say yes quickly when proposals align with principles. The goal is speed with guardrails, not bureaucracy.\n\n> The best design system is the one teams actually use on Monday morning.\n\nWhen product and engineering share the same language for UI, reviews get shorter, onboarding gets easier, and the experience stays coherent even as headcount grows. Explore [our services](/#services) or [reach out](/contact)."
+    }
+  ]
+}

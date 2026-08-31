@@ -1,0 +1,83 @@
+﻿"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { projects } from "@/lib/projects";
+import { portfolioCategories } from "../data/portfolio-constants";
+
+export default function PortfolioGridSection() {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const filtered =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
+
+  return (
+    <section className="lt-section">
+      <div className="brelyx-container">
+
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0.625rem", marginBottom: "3.5rem" }}>
+          {portfolioCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`lt-filter-tab${activeCategory === cat ? " active" : ""}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div style={{ display: "grid", gap: "1.75rem", gridTemplateColumns: "repeat(3, minmax(0,1fr))" }}
+          className="lt-portfolio-grid">
+          {filtered.map((project) => (
+            <Link key={project.slug} href={`/portfolio/${project.slug}`} className="lt-card">
+              <div className="lt-card-img lt-card-img-wide">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="lt-card-hover-btn">
+                  <div className="lt-card-hover-btn-inner">View Project →</div>
+                </div>
+                <div style={{ position: "absolute", bottom: "0.75rem", left: "0.875rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                  <span className="lt-card-cat">{project.category}</span>
+                  {project.year && (
+                    <span style={{ fontSize: "0.65rem", color: "#6B7280", fontWeight: 600, background: "rgba(255,255,255,0.9)", padding: "0.2rem 0.5rem", borderRadius: "0.4rem" }}>
+                      {project.year}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="lt-card-body">
+                <div className="lt-card-title">{project.title}</div>
+                <div className="lt-card-excerpt" style={{ WebkitLineClamp: 2, display: "-webkit-box", WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                  {project.tagline}
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", paddingTop: "0.25rem" }}>
+                  {project.tech.slice(0, 3).map((t) => (
+                    <span key={t} className="lt-tech-tag">{t}</span>
+                  ))}
+                  {project.tech.length > 3 && (
+                    <span className="lt-tech-tag">+{project.tech.length - 3}</span>
+                  )}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <div style={{ textAlign: "center", padding: "5rem 0", color: "#9CA3AF" }}>
+            No projects found in this category.
+          </div>
+        )}
+
+      </div>
+    </section>
+  );
+}
