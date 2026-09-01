@@ -4432,10 +4432,11 @@ body {
   position: relative;
   padding: 3.5rem 0;
   background:
-    radial-gradient(circle at 15% 30%, rgba(108,76,255,0.16), transparent 55%),
-    radial-gradient(circle at 85% 70%, rgba(63,224,208,0.1), transparent 55%),
-    #070B1E;
-  border-top: 1px solid rgba(255,255,255,0.06);
+    radial-gradient(circle at 15% 25%, rgba(108,76,255,0.06), transparent 55%),
+    radial-gradient(circle at 85% 75%, rgba(63,224,208,0.07), transparent 55%),
+    var(--lt-bg-alt);
+  border-top: 1px solid var(--lt-border);
+  border-bottom: 1px solid var(--lt-border);
   overflow: hidden;
 }
 .newsletter-inner {
@@ -4456,21 +4457,21 @@ body {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #3FE0D0;
+  color: #6C4CFF;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 .newsletter-heading {
   font-size: 1.55rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--lt-text);
   letter-spacing: -0.01em;
   line-height: 1.25;
   margin-bottom: 0.6rem;
 }
 .newsletter-sub {
   font-size: 0.92rem;
-  color: var(--tc-muted2);
+  color: var(--lt-muted);
   line-height: 1.6;
 }
 .newsletter-form {
@@ -4487,20 +4488,20 @@ body {
   min-width: 200px;
   padding: 0.9rem 1.4rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.04);
-  color: #ffffff;
+  border: 1.5px solid var(--lt-border);
+  background: #FFFFFF;
+  color: var(--lt-text);
   font-size: 0.9rem;
   outline: none;
   font-family: inherit;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
-.newsletter-input:focus { border-color: rgba(108,76,255,0.6); background: rgba(255,255,255,0.07); }
-.newsletter-error { margin-top: 0.85rem; font-size: 0.8rem; color: #F87171; }
+.newsletter-input::placeholder { color: #9CA3AF; }
+.newsletter-input:focus { border-color: #6C4CFF; box-shadow: 0 0 0 3px rgba(108,76,255,0.1); }
+.newsletter-error { margin-top: 0.85rem; font-size: 0.8rem; color: #DC2626; }
 .newsletter-success {
   display: flex; align-items: center; gap: 0.6rem;
-  font-size: 0.92rem; font-weight: 600; color: #3FE0D0;
+  font-size: 0.92rem; font-weight: 600; color: #0F9488;
   padding: 0.9rem 0;
 }
 
