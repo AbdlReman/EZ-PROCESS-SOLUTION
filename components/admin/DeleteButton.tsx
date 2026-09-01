@@ -1,5 +1,7 @@
 "use client";
 
+import { IconTrash } from "./icons";
+
 export default function DeleteButton({
   action,
   confirmMessage,
@@ -16,20 +18,8 @@ export default function DeleteButton({
         }
       }}
     >
-      <button
-        type="submit"
-        style={{
-          fontSize: "0.78rem",
-          fontWeight: 600,
-          color: "#F87171",
-          background: "rgba(248,113,113,0.1)",
-          border: "1px solid rgba(248,113,113,0.3)",
-          borderRadius: "0.5rem",
-          padding: "0.4rem 0.8rem",
-          cursor: "pointer",
-        }}
-      >
-        Delete
+      <button type="submit" className="ez-admin-icon-btn danger" aria-label="Delete" title="Delete">
+        <IconTrash />
       </button>
     </form>
   );

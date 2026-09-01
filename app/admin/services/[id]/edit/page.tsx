@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import ServiceForm from "@/components/admin/ServiceForm";
 import { getServiceById } from "@/lib/models/service";
 import { updateService } from "@/lib/actions/services";
+import { IconChevronLeft } from "@/components/admin/icons";
 
 export default async function EditServicePage({
   params,
@@ -14,7 +16,16 @@ export default async function EditServicePage({
 
   return (
     <div>
-      <h1 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#ffffff", marginBottom: "2rem" }}>Edit Service</h1>
+      <Link href="/admin/services" className="ez-admin-back-link">
+        <IconChevronLeft size={13} />
+        Back to Services
+      </Link>
+      <div className="ez-admin-page-head">
+        <div>
+          <h1 className="ez-admin-page-title">Edit Service</h1>
+          <p className="ez-admin-page-subtitle">{service.title}</p>
+        </div>
+      </div>
       <ServiceForm action={updateService.bind(null, service.id)} initial={service} />
     </div>
   );

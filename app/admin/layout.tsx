@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
-import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminShell from "@/components/admin/AdminShell";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -12,10 +12,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     redirect("/");
   }
 
-  return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#0a0d1a" }}>
-      <AdminSidebar userName={session.user.name ?? session.user.email ?? "Admin"} />
-      <div style={{ flex: 1, padding: "2.5rem 3rem", color: "#e5e7eb" }}>{children}</div>
-    </div>
-  );
+  const userName = session.user.name ?? session.user.email ?? "Admin";
+
+  return <AdminShell userName={userName}>{children}</AdminShell>;
 }
