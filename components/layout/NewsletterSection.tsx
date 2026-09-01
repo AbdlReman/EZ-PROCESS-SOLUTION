@@ -18,7 +18,7 @@ export default function NewsletterSection() {
       <div className="brelyx-container newsletter-inner">
         <div className="newsletter-copy">
           <span className="newsletter-eyebrow">Stay in the loop</span>
-          <h2 className="newsletter-heading">Get product updates &amp; insights in your inbox</h2>
+          <h2 className="newsletter-heading">Get updates  in your inbox</h2>
           <p className="newsletter-sub">No spam — just the occasional update on what we&apos;re building and learning.</p>
         </div>
 
