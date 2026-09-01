@@ -136,3 +136,22 @@ export function IconInbox({ size = 24, className }: IconProps) {
     </svg>
   );
 }
+
+export function IconMail({ size = 19, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1.8" />
+      <path d="M4.2 6.5 12 12.8l7.8-6.3" />
+    </svg>
+  );
+}
+
+export function IconMailOpen({ size = 15, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M4 10.8v7.2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7.2" />
+      <path d="M4 10.8 11.3 5a1.2 1.2 0 0 1 1.4 0L20 10.8" />
+      <path d="M4 10.8 10 15l-6 3.6M20 10.8 14 15l6 3.6" />
+    </svg>
+  );
+}

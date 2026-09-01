@@ -9,6 +9,7 @@ const sectionLabels: Record<string, { title: string; singular: string }> = {
   projects: { title: "Projects", singular: "Project" },
   services: { title: "Services", singular: "Service" },
   blog: { title: "Blog Posts", singular: "Post" },
+  messages: { title: "Messages", singular: "Message" },
 };
 
 function useAdminTitle(pathname: string) {
@@ -30,6 +31,9 @@ function useAdminTitle(pathname: string) {
   }
   if (third && segments[3] === "edit") {
     return { title: `Edit ${meta.singular}`, crumb: meta.title };
+  }
+  if (third) {
+    return { title: meta.singular, crumb: meta.title };
   }
   return { title: meta.title, crumb: "Content" };
 }

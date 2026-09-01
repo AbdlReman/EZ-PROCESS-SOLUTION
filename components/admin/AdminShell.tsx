@@ -7,9 +7,11 @@ import AdminTopbar from "./AdminTopbar";
 
 export default function AdminShell({
   userName,
+  unreadMessages = 0,
   children,
 }: {
   userName: string;
+  unreadMessages?: number;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +24,7 @@ export default function AdminShell({
 
   return (
     <div className="ez-admin-shell">
-      <AdminSidebar userName={userName} open={open} onClose={() => setOpen(false)} />
+      <AdminSidebar userName={userName} open={open} onClose={() => setOpen(false)} unreadMessages={unreadMessages} />
       <div className="ez-admin-main">
         <AdminTopbar onMenuClick={() => setOpen(true)} userName={userName} />
         <div className="ez-admin-content">{children}</div>

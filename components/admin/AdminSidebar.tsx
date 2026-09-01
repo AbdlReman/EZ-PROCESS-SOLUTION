@@ -8,6 +8,7 @@ import {
   IconFolder,
   IconLayers,
   IconDocument,
+  IconMail,
   IconClose,
   IconLogout,
   IconChevronLeft,
@@ -18,6 +19,7 @@ const navItems = [
   { label: "Projects", href: "/admin/projects", icon: IconFolder },
   { label: "Services", href: "/admin/services", icon: IconLayers },
   { label: "Blog", href: "/admin/blog", icon: IconDocument },
+  { label: "Messages", href: "/admin/messages", icon: IconMail },
 ];
 
 function initialsFrom(name: string) {
@@ -31,10 +33,12 @@ export default function AdminSidebar({
   userName,
   open,
   onClose,
+  unreadMessages = 0,
 }: {
   userName: string;
   open: boolean;
   onClose: () => void;
+  unreadMessages?: number;
 }) {
   const pathname = usePathname();
 
@@ -68,6 +72,7 @@ export default function AdminSidebar({
           <span className="ez-admin-nav-label">Content</span>
           {navItems.map(({ label, href, icon: Icon }) => {
             const active = href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
+            const badge = label === "Messages" && unreadMessages > 0 ? unreadMessages : null;
             return (
               <Link
                 key={href}
@@ -78,7 +83,8 @@ export default function AdminSidebar({
                 <span className="ez-admin-nav-icon">
                   <Icon />
                 </span>
-                {label}
+                <span style={{ flex: 1 }}>{label}</span>
+                {badge && <span className="ez-admin-nav-badge">{badge > 99 ? "99+" : badge}</span>}
               </Link>
             );
           })}

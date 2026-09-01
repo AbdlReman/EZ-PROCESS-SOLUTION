@@ -4382,3 +4382,46 @@ body {
 /* ━━━ Misc buttons ━━━ */
 
 .ez-admin-btn-sm { padding: 0.58rem 1.15rem !important; font-size: 0.8rem !important; }
+
+/* ── Contact form — interactive states ─────────────────── */
+.lt-chip-btn.active {
+  background: #6C4CFF;
+  border-color: #6C4CFF;
+  color: #FFFFFF;
+}
+.lt-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+.lt-form-success-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(63,224,208,0.14);
+  color: #12b8a4;
+}
+.lt-form-error-text {
+  font-size: 0.82rem;
+  color: #DC2626;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.95rem;
+}
+
+.ez-admin-nav-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 19px; height: 19px; padding: 0 0.35rem;
+  border-radius: 999px; font-size: 0.66rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--ez-admin-primary), var(--ez-admin-accent));
+  color: #fff; flex-shrink: 0;
+}
+.ez-admin-topbar-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 17px; height: 17px; padding: 0 0.3rem; margin-left: 0.3rem;
+  border-radius: 999px; font-size: 0.62rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--ez-admin-primary), var(--ez-admin-accent));
+  color: #fff;
+}

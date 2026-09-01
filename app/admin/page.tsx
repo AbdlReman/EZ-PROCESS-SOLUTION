@@ -3,39 +3,63 @@ import Image from "next/image";
 import { getAllProjects } from "@/lib/models/project";
 import { getAllServices } from "@/lib/models/service";
 import { getAllBlogPosts } from "@/lib/models/blog";
-import { IconFolder, IconLayers, IconDocument, IconPlus, IconInbox } from "@/components/admin/icons";
+import { getAllMessages } from "@/lib/models/message";
+import { IconFolder, IconLayers, IconDocument, IconMail, IconPlus, IconInbox } from "@/components/admin/icons";
+
+function initialsFrom(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
 
 export default async function AdminDashboardPage() {
-  const [projects, services, blogPosts] = await Promise.all([
+  const [projects, services, blogPosts, messages] = await Promise.all([
     getAllProjects(),
     getAllServices(),
     getAllBlogPosts(),
+    getAllMessages(),
   ]);
 
+  const unreadCount = messages.filter((m) => !m.read).length;
+
   const stats = [
-    { label: "Projects", count: projects.length, href: "/admin/projects", icon: IconFolder },
-    { label: "Services", count: services.length, href: "/admin/services", icon: IconLayers },
-    { label: "Blog Posts", count: blogPosts.length, href: "/admin/blog", icon: IconDocument },
+    { label: "Projects", count: projects.length, href: "/admin/projects", icon: IconFolder, sublabel: undefined as string | undefined },
+    { label: "Services", count: services.length, href: "/admin/services", icon: IconLayers, sublabel: undefined as string | undefined },
+    { label: "Blog Posts", count: blogPosts.length, href: "/admin/blog", icon: IconDocument, sublabel: undefined as string | undefined },
+    {
+      label: "Messages",
+      count: messages.length,
+      href: "/admin/messages",
+      icon: IconMail,
+      sublabel: unreadCount > 0 ? `${unreadCount} unread` : undefined,
+    },
   ];
 
   const recentPanels = [
     {
       label: "Recent Projects",
       href: "/admin/projects",
-      items: projects.slice(0, 4).map((p) => ({ id: p.id, title: p.title, sub: p.category, image: p.image, editHref: `/admin/projects/${p.id}/edit` })),
+      items: projects.slice(0, 4).map((p) => ({ id: p.id, title: p.title, sub: p.category, image: p.image as string | undefined, editHref: `/admin/projects/${p.id}/edit` })),
       emptyLabel: "No projects yet",
     },
     {
       label: "Recent Services",
       href: "/admin/services",
-      items: services.slice(0, 4).map((s) => ({ id: s.id, title: s.title, sub: s.category, image: s.image, editHref: `/admin/services/${s.id}/edit` })),
+      items: services.slice(0, 4).map((s) => ({ id: s.id, title: s.title, sub: s.category, image: s.image as string | undefined, editHref: `/admin/services/${s.id}/edit` })),
       emptyLabel: "No services yet",
     },
     {
       label: "Recent Blog Posts",
       href: "/admin/blog",
-      items: blogPosts.slice(0, 4).map((b) => ({ id: b.id, title: b.title, sub: b.date, image: b.image, editHref: `/admin/blog/${b.id}/edit` })),
+      items: blogPosts.slice(0, 4).map((b) => ({ id: b.id, title: b.title, sub: b.date, image: b.image as string | undefined, editHref: `/admin/blog/${b.id}/edit` })),
       emptyLabel: "No blog posts yet",
+    },
+    {
+      label: "Recent Messages",
+      href: "/admin/messages",
+      items: messages.slice(0, 4).map((m) => ({ id: m.id, title: m.name, sub: m.email, image: undefined as string | undefined, editHref: `/admin/messages/${m.id}` })),
+      emptyLabel: "No messages yet",
     },
   ];
 
@@ -44,19 +68,22 @@ export default async function AdminDashboardPage() {
       <div className="ez-admin-page-head">
         <div>
           <h1 className="ez-admin-page-title">Dashboard</h1>
-          <p className="ez-admin-page-subtitle">Manage your portfolio, services, and blog content from one place.</p>
+          <p className="ez-admin-page-subtitle">Manage your portfolio, services, blog, and inbound messages from one place.</p>
         </div>
       </div>
 
       <div className="ez-admin-stats-grid">
-        {stats.map(({ label, count, href, icon: Icon }) => (
+        {stats.map(({ label, count, href, icon: Icon, sublabel }) => (
           <Link key={label} href={href} className="ez-admin-stat-card">
             <div className="ez-admin-stat-icon">
               <Icon size={21} />
             </div>
             <div className="ez-admin-stat-body">
               <div className="ez-admin-stat-value">{count}</div>
-              <div className="ez-admin-stat-label">{label}</div>
+              <div className="ez-admin-stat-label">
+                {label}
+                {sublabel && <span className="ez-admin-topbar-badge" style={{ marginLeft: "0.5rem" }}>{sublabel}</span>}
+              </div>
             </div>
             <span className="ez-admin-stat-arrow">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -108,9 +135,15 @@ export default async function AdminDashboardPage() {
                       className="ez-admin-row-item"
                       style={{ textDecoration: "none" }}
                     >
-                      <div className="ez-admin-row-thumb">
-                        <Image src={item.image} alt={item.title} fill className="object-cover object-center" />
-                      </div>
+                      {item.image ? (
+                        <div className="ez-admin-row-thumb">
+                          <Image src={item.image} alt={item.title} fill className="object-cover object-center" />
+                        </div>
+                      ) : (
+                        <div className="ez-admin-user-avatar" style={{ width: "42px", height: "42px", borderRadius: "0.6rem", fontSize: "0.72rem" }}>
+                          {initialsFrom(item.title)}
+                        </div>
+                      )}
                       <div style={{ minWidth: 0 }}>
                         <div className="ez-admin-row-title">{item.title}</div>
                         <div className="ez-admin-row-sub">{item.sub}</div>
