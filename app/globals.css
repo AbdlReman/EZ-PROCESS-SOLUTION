@@ -4425,3 +4425,117 @@ body {
   background: linear-gradient(135deg, var(--ez-admin-primary), var(--ez-admin-accent));
   color: #fff;
 }
+
+/* ━━━ Newsletter band (above footer) ━━━━━━━━━━━━━━━━━━━ */
+
+.newsletter-band {
+  position: relative;
+  padding: 3.5rem 0;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(108,76,255,0.16), transparent 55%),
+    radial-gradient(circle at 85% 70%, rgba(63,224,208,0.1), transparent 55%),
+    #070B1E;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.newsletter-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .newsletter-inner { flex-direction: row; align-items: center; gap: 2.5rem; }
+}
+.newsletter-copy { max-width: 32rem; }
+.newsletter-eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #3FE0D0;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.newsletter-heading {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.newsletter-sub {
+  font-size: 0.92rem;
+  color: var(--tc-muted2);
+  line-height: 1.6;
+}
+.newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (min-width: 560px) {
+  .newsletter-form { flex-wrap: nowrap; }
+}
+.newsletter-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+.newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+.newsletter-input:focus { border-color: rgba(108,76,255,0.6); background: rgba(255,255,255,0.07); }
+.newsletter-error { margin-top: 0.85rem; font-size: 0.8rem; color: #F87171; }
+.newsletter-success {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.92rem; font-weight: 600; color: #3FE0D0;
+  padding: 0.9rem 0;
+}
+
+/* ━━━ Subscribers — selection, bulk toolbar, import ━━━━━ */
+
+.ez-admin-checkbox {
+  width: 16px; height: 16px;
+  accent-color: var(--ez-admin-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.ez-admin-selection-bar {
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+  padding: 0.8rem 1.5rem;
+  background: rgba(108,76,255,0.08);
+  border-bottom: 1px solid var(--ez-admin-border-soft);
+}
+.ez-admin-selection-count { font-size: 0.82rem; font-weight: 700; color: #fff; margin-right: 0.25rem; }
+.ez-admin-import-panel {
+  padding: 1.35rem 1.5rem;
+  border-bottom: 1px solid var(--ez-admin-border-soft);
+  display: flex; flex-direction: column; gap: 1rem;
+  background: rgba(255,255,255,0.015);
+}
+.ez-admin-import-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+.ez-admin-import-col { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 0.5rem; }
+.ez-admin-import-file {
+  border: 1.5px dashed var(--ez-admin-border);
+  border-radius: 0.85rem;
+  padding: 1.1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ez-admin-text-dim);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.ez-admin-import-file:hover { border-color: rgba(108,76,255,0.5); background: rgba(108,76,255,0.05); }
+.ez-admin-import-result { font-size: 0.82rem; color: var(--ez-admin-accent); font-weight: 600; }

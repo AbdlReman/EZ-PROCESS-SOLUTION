@@ -155,3 +155,34 @@ export function IconMailOpen({ size = 15, className }: IconProps) {
     </svg>
   );
 }
+
+export function IconUsers({ size = 19, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M3.2 19c.7-3 2.9-4.8 5.8-4.8s5.1 1.8 5.8 4.8" />
+      <path d="M15.5 5.3a3.2 3.2 0 0 1 0 6" />
+      <path d="M16.2 14.4c2.5.3 4.3 2 4.9 4.6" />
+    </svg>
+  );
+}
+
+export function IconDownload({ size = 15, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M12 3.5v11.5" />
+      <path d="M7.2 10.7 12 15.5l4.8-4.8" />
+      <path d="M4.5 17v2.5A1.5 1.5 0 0 0 6 21h12a1.5 1.5 0 0 0 1.5-1.5V17" />
+    </svg>
+  );
+}
+
+export function IconUpload({ size = 15, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M12 15.5V4" />
+      <path d="M7.2 8.3 12 3.5l4.8 4.8" />
+      <path d="M4.5 17v2.5A1.5 1.5 0 0 0 6 21h12a1.5 1.5 0 0 0 1.5-1.5V17" />
+    </svg>
+  );
+}

@@ -9,6 +9,7 @@ import {
   IconLayers,
   IconDocument,
   IconMail,
+  IconUsers,
   IconClose,
   IconLogout,
   IconChevronLeft,
@@ -20,6 +21,7 @@ const navItems = [
   { label: "Services", href: "/admin/services", icon: IconLayers },
   { label: "Blog", href: "/admin/blog", icon: IconDocument },
   { label: "Messages", href: "/admin/messages", icon: IconMail },
+  { label: "Subscribers", href: "/admin/subscribers", icon: IconUsers },
 ];
 
 function initialsFrom(name: string) {

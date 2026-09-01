@@ -10,6 +10,7 @@ const sectionLabels: Record<string, { title: string; singular: string }> = {
   services: { title: "Services", singular: "Service" },
   blog: { title: "Blog Posts", singular: "Post" },
   messages: { title: "Messages", singular: "Message" },
+  subscribers: { title: "Subscribers", singular: "Subscriber" },
 };
 
 function useAdminTitle(pathname: string) {

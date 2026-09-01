@@ -4,7 +4,8 @@ import { getAllProjects } from "@/lib/models/project";
 import { getAllServices } from "@/lib/models/service";
 import { getAllBlogPosts } from "@/lib/models/blog";
 import { getAllMessages } from "@/lib/models/message";
-import { IconFolder, IconLayers, IconDocument, IconMail, IconPlus, IconInbox } from "@/components/admin/icons";
+import { getAllSubscribers } from "@/lib/models/subscriber";
+import { IconFolder, IconLayers, IconDocument, IconMail, IconUsers, IconPlus, IconInbox } from "@/components/admin/icons";
 
 function initialsFrom(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -14,11 +15,12 @@ function initialsFrom(name: string) {
 }
 
 export default async function AdminDashboardPage() {
-  const [projects, services, blogPosts, messages] = await Promise.all([
+  const [projects, services, blogPosts, messages, subscribers] = await Promise.all([
     getAllProjects(),
     getAllServices(),
     getAllBlogPosts(),
     getAllMessages(),
+    getAllSubscribers(),
   ]);
 
   const unreadCount = messages.filter((m) => !m.read).length;
@@ -34,6 +36,7 @@ export default async function AdminDashboardPage() {
       icon: IconMail,
       sublabel: unreadCount > 0 ? `${unreadCount} unread` : undefined,
     },
+    { label: "Subscribers", count: subscribers.length, href: "/admin/subscribers", icon: IconUsers, sublabel: undefined as string | undefined },
   ];
 
   const recentPanels = [
@@ -60,6 +63,12 @@ export default async function AdminDashboardPage() {
       href: "/admin/messages",
       items: messages.slice(0, 4).map((m) => ({ id: m.id, title: m.name, sub: m.email, image: undefined as string | undefined, editHref: `/admin/messages/${m.id}` })),
       emptyLabel: "No messages yet",
+    },
+    {
+      label: "Recent Subscribers",
+      href: "/admin/subscribers",
+      items: subscribers.slice(0, 4).map((s) => ({ id: s.id, title: s.email, sub: "Subscribed", image: undefined as string | undefined, editHref: "/admin/subscribers" })),
+      emptyLabel: "No subscribers yet",
     },
   ];
 
