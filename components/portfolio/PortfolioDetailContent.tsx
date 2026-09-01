@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/lib/models/project";
+import RichContent from "@/components/RichContent";
 
 export default function PortfolioDetailContent({ project }: { project: Project }) {
   return (
@@ -37,9 +38,9 @@ export default function PortfolioDetailContent({ project }: { project: Project }
                   <Image src={project.image} alt={project.title} fill className="object-cover object-top" priority />
                 </div>
 
-                <p style={{ fontSize: "0.98rem", lineHeight: 1.9, color: "#374151", marginBottom: "2rem" }}>
-                  {project.longDescription}
-                </p>
+                <div style={{ marginBottom: "2rem" }}>
+                  <RichContent html={project.longDescription} />
+                </div>
 
                 {project.features.length > 0 && (
                   <div style={{ marginBottom: "2rem" }}>

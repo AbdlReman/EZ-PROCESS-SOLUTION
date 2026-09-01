@@ -1,0 +1,16 @@
+import DOMPurify from "isomorphic-dompurify";
+
+/**
+ * Renders sanitized rich-text HTML (from a TinyMCE-backed admin field) with
+ * the shared "article body" typography used across detail pages.
+ */
+export default function RichContent({
+  html,
+  className = "lt-article-body",
+}: {
+  html: string;
+  className?: string;
+}) {
+  const clean = DOMPurify.sanitize(html);
+  return <div className={className} dangerouslySetInnerHTML={{ __html: clean }} />;
+}

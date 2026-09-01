@@ -5,6 +5,7 @@ import { useActionState } from "react";
 import type { Project } from "@/lib/models/project";
 import type { ActionState } from "@/lib/actions/types";
 import ImageUploadField from "./ImageUploadField";
+import RichTextEditor from "./RichTextEditor";
 
 type ProjectFormAction = (prevState: ActionState, formData: FormData) => Promise<ActionState>;
 
@@ -57,8 +58,8 @@ export default function ProjectForm({
         </div>
 
         <div className="brelyx-form-group">
-          <label className="brelyx-form-label" htmlFor="longDescription">Long Description (detail page)</label>
-          <textarea id="longDescription" name="longDescription" className="brelyx-textarea" defaultValue={initial?.longDescription} required />
+          <label className="brelyx-form-label">Long Description (detail page)</label>
+          <RichTextEditor name="longDescription" defaultValue={initial?.longDescription} />
         </div>
       </div>
 

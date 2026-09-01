@@ -1,5 +1,6 @@
 "use server";
 
+import DOMPurify from "isomorphic-dompurify";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "./require-admin";
@@ -18,7 +19,7 @@ function parseProjectForm(formData: FormData): ProjectInput {
     title: requiredString(formData, "title"),
     tagline: requiredString(formData, "tagline"),
     description: requiredString(formData, "description"),
-    longDescription: requiredString(formData, "longDescription"),
+    longDescription: DOMPurify.sanitize(String(formData.get("longDescription") ?? "")),
     image: requiredString(formData, "image"),
     detailImages: linesToArray(formData, "detailImages"),
     category: requiredString(formData, "category"),

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ServiceDetail } from "@/lib/models/service";
+import RichContent from "@/components/RichContent";
 
 export default function ServiceDetailContent({ service }: { service: ServiceDetail }) {
   return (
@@ -33,9 +34,9 @@ export default function ServiceDetailContent({ service }: { service: ServiceDeta
                   <Image src={service.image} alt={service.title} fill className="object-cover object-center" priority />
                 </div>
 
-                <p style={{ fontSize: "0.98rem", lineHeight: 1.9, color: "#374151", marginBottom: "2.5rem" }}>
-                  {service.longDescription}
-                </p>
+                <div style={{ marginBottom: "2.5rem" }}>
+                  <RichContent html={service.longDescription} />
+                </div>
 
                 {service.features.length > 0 && (
                   <div style={{ marginBottom: "2.5rem" }}>
