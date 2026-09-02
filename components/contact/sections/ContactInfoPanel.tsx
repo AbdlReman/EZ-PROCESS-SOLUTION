@@ -5,7 +5,7 @@ import Image from "next/image";
 const infoCards = [
   {
     label: "Global presence",
-    value: "Pakistan",
+    value: "United States",
     icon: (
       <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8" />
@@ -44,7 +44,7 @@ const infoCards = [
 ];
 
 const offices = [
-  { city: "Pakistan", detail: "Head Office" },
+  { city: "3217 Blackstone Run, Lawrenceville, GA 30043", detail: "Head Office" },
 ] as const;
 
 export default function ContactInfoPanel() {
