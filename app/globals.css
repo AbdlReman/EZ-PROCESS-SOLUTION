@@ -3867,6 +3867,89 @@ body {
   line-height: 1.6;
 }
 
+/* ── Pricing packages ──────────────────────────────────── */
+.lt-pricing-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+.lt-pricing-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.25rem;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  padding: 1.75rem;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.lt-pricing-card:hover {
+  border-color: #93E2F9;
+  box-shadow: 0 8px 28px rgba(108,76,255,0.1);
+  transform: translateY(-3px);
+}
+.lt-pricing-card.highlight {
+  border-color: #6C4CFF;
+  box-shadow: 0 12px 32px rgba(108,76,255,0.16);
+}
+.lt-pricing-badge {
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #6C4CFF, #3FE0D0);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.lt-pricing-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #6C4CFF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+.lt-pricing-price {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+.lt-pricing-delivery {
+  font-size: 0.78rem;
+  color: #6B7280;
+  margin-bottom: 1rem;
+}
+.lt-pricing-desc {
+  font-size: 0.85rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.lt-pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.lt-pricing-feature {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: #374151;
+  line-height: 1.5;
+}
+.lt-pricing-feature-icon { color: #6C4CFF; flex-shrink: 0; }
+
 /* ── Responsive grid helpers ────────────────────────────── */
 @media (max-width: 1023px) {
   .lt-portfolio-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
@@ -3875,9 +3958,11 @@ body {
   .lt-testimonials-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
   .lt-detail-split    { grid-template-columns: 1fr !important; }
   .lt-detail-hero-grid { grid-template-columns: 1fr !important; }
+  .lt-pricing-grid    { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
 }
 @media (max-width: 639px) {
   .lt-portfolio-grid { grid-template-columns: minmax(0,1fr) !important; }
+  .lt-pricing-grid    { grid-template-columns: minmax(0,1fr) !important; }
   .lt-why-grid        { grid-template-columns: minmax(0,1fr) !important; }
   .lt-process-grid    { grid-template-columns: minmax(0,1fr) !important; }
   .lt-testimonials-grid { grid-template-columns: minmax(0,1fr) !important; }

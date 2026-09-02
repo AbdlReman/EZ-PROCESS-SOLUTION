@@ -186,3 +186,13 @@ export function IconUpload({ size = 15, className }: IconProps) {
     </svg>
   );
 }
+
+export function IconBox({ size = 19, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M3.5 8 12 3.5 20.5 8v8L12 20.5 3.5 16V8Z" />
+      <path d="M3.5 8 12 12.5 20.5 8" />
+      <path d="M12 12.5V20.5" />
+    </svg>
+  );
+}

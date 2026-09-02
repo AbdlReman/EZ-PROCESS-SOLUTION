@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ServiceDetail } from "@/lib/models/service";
+import type { ServicePackage } from "@/lib/models/package";
 import RichContent from "@/components/RichContent";
 
-export default function ServiceDetailContent({ service }: { service: ServiceDetail }) {
+export default function ServiceDetailContent({
+  service,
+  packages = [],
+}: {
+  service: ServiceDetail;
+  packages?: ServicePackage[];
+}) {
   return (
     <div className="min-h-screen">
       <main>
@@ -108,6 +115,44 @@ export default function ServiceDetailContent({ service }: { service: ServiceDeta
             </div>
           </div>
         </section>
+
+        {/* ── Packages ──────────────────────────────────────── */}
+        {packages.length > 0 && (
+          <section className="lt-section-alt">
+            <div className="brelyx-container">
+              <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 3rem" }}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <div className="lt-kicker">Pricing</div>
+                </div>
+                <h2 className="lt-h2">Choose Your Package</h2>
+              </div>
+              <div className="lt-pricing-grid">
+                {packages.map((pkg) => (
+                  <div key={pkg.id} className={`lt-pricing-card${pkg.highlight ? " highlight" : ""}`}>
+                    {pkg.highlight && <span className="lt-pricing-badge">Most Popular</span>}
+                    <div className="lt-pricing-name">{pkg.name}</div>
+                    <div className="lt-pricing-price">{pkg.price}</div>
+                    {pkg.deliveryTime && <div className="lt-pricing-delivery">⏱ {pkg.deliveryTime}</div>}
+                    <p className="lt-pricing-desc">{pkg.description}</p>
+                    {pkg.features.length > 0 && (
+                      <ul className="lt-pricing-features">
+                        {pkg.features.map((feature) => (
+                          <li key={feature} className="lt-pricing-feature">
+                            <span className="lt-pricing-feature-icon">✓</span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <Link href="/contact" className="lt-btn" style={{ justifyContent: "center" }}>
+                      Get Started →
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

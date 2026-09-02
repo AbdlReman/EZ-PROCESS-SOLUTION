@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ServiceDetailContent from "@/components/services/ServiceDetailContent";
 import { getServiceBySlug } from "@/lib/models/service";
+import { getPackagesByServiceId } from "@/lib/models/package";
 
 export async function generateMetadata({
   params,
@@ -25,5 +26,6 @@ export default async function ServiceDetailPage({
   const { slug } = await params;
   const service = await getServiceBySlug(slug);
   if (!service) notFound();
-  return <ServiceDetailContent service={service} />;
+  const packages = await getPackagesByServiceId(service.id);
+  return <ServiceDetailContent service={service} packages={packages} />;
 }
