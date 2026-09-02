@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# unrelated reference project dropped into this folder — not part of this app
+/alharamstore
