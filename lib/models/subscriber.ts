@@ -17,9 +17,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 async function subscribersCollection() {
   const db = await getDb();
-  const collection = db.collection<SubscriberDoc>("subscribers");
-  await collection.createIndex({ email: 1 }, { unique: true });
-  return collection;
+  return db.collection<SubscriberDoc>("subscribers");
 }
 
 function toSubscriber(doc: SubscriberDoc): Subscriber {

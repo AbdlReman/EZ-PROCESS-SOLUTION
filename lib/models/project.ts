@@ -28,9 +28,7 @@ interface ProjectDoc extends Omit<Project, "id"> {
 
 async function projectsCollection() {
   const db = await getDb();
-  const collection = db.collection<ProjectDoc>("projects");
-  await collection.createIndex({ slug: 1 }, { unique: true });
-  return collection;
+  return db.collection<ProjectDoc>("projects");
 }
 
 function toProject(doc: ProjectDoc): Project {

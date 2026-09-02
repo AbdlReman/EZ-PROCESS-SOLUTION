@@ -25,9 +25,7 @@ interface BlogDoc extends Omit<BlogPost, "id"> {
 
 async function blogCollection() {
   const db = await getDb();
-  const collection = db.collection<BlogDoc>("blogs");
-  await collection.createIndex({ slug: 1 }, { unique: true });
-  return collection;
+  return db.collection<BlogDoc>("blogs");
 }
 
 function toBlogPost(doc: BlogDoc): BlogPost {

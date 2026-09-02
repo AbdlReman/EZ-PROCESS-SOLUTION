@@ -33,9 +33,7 @@ interface ServiceDoc extends Omit<ServiceDetail, "id"> {
 
 async function servicesCollection() {
   const db = await getDb();
-  const collection = db.collection<ServiceDoc>("services");
-  await collection.createIndex({ slug: 1 }, { unique: true });
-  return collection;
+  return db.collection<ServiceDoc>("services");
 }
 
 function toService(doc: ServiceDoc): ServiceDetail {

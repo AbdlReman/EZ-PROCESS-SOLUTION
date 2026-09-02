@@ -20,11 +20,13 @@ async function main() {
   const services = db.collection("services");
   const blogs = db.collection("blogs");
   const users = db.collection("users");
+  const subscribers = db.collection("subscribers");
 
   await projects.createIndex({ slug: 1 }, { unique: true });
   await services.createIndex({ slug: 1 }, { unique: true });
   await blogs.createIndex({ slug: 1 }, { unique: true });
   await users.createIndex({ email: 1 }, { unique: true });
+  await subscribers.createIndex({ email: 1 }, { unique: true });
 
   let projectCount = 0;
   for (const project of legacyProjects) {
