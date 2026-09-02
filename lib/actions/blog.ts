@@ -1,6 +1,5 @@
 "use server";
 
-import DOMPurify from "isomorphic-dompurify";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "./require-admin";
@@ -23,7 +22,7 @@ function parseBlogForm(formData: FormData): BlogPostInput {
     category: requiredString(formData, "category"),
     readTime: requiredString(formData, "readTime"),
     image: requiredString(formData, "image"),
-    content: DOMPurify.sanitize(String(formData.get("content") ?? "")),
+    content: requiredString(formData, "content"),
   };
 }
 
