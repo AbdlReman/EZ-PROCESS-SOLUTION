@@ -47,7 +47,7 @@ export default function Footer() {
                 ["Portfolio", "/portfolio"],
                 ["Industries", "/#industries"],
                 ["Contact", "/contact"],
-                ["Privacy Policy", "#"],
+                ["Privacy Policy", "/privacy-policy"],
               ] as [string, string][]).map(([label, href]) => (
                 <li key={label}><Link href={href} className="brelyx-footer-link">{label}</Link></li>
               ))}
@@ -89,8 +89,12 @@ export default function Footer() {
         <div className="footer-bottom-bar">
           <p className="footer-bottom-text">© {new Date().getFullYear()} EZ Process Solution. All rights reserved.</p>
           <div className="footer-bottom-links">
-            {["Terms of Service", "Privacy Policy", "Cookie Policy"].map((l) => (
-              <a key={l} href="#" className="brelyx-footer-link">{l}</a>
+            {([
+              ["Terms of Service", "/terms-of-service"],
+              ["Privacy Policy", "/privacy-policy"],
+              ["Cookie Policy", "#"],
+            ] as [string, string][]).map(([label, href]) => (
+              <Link key={label} href={href} className="brelyx-footer-link">{label}</Link>
             ))}
           </div>
         </div>
