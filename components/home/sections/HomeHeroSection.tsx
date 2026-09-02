@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const STATS = [
-  { num: "120+", label: "Products Delivered" },
+  { num: "70+", label: "Products Delivered" },
   { num: "98%",  label: "Client Satisfaction" },
-  { num: "15+",  label: "Years Excellence" },
+  { num: "5+",  label: "Years Excellence" },
   { num: "23+",  label: "Countries Served" },
 ];
 

@@ -1,6 +1,6 @@
 ﻿const stats = [
-  { num: "120+", label: "Realized Projects" },
-  { num: "15+",  label: "Years of Experience" },
+  { num: "70+", label: "Realized Projects" },
+  { num: "5+",  label: "Years of Experience" },
   { num: "98%",  label: "Client Satisfaction" },
   { num: "23+",  label: "Countries Served" },
 ];

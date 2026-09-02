@@ -128,10 +128,10 @@ export const industries: IndustryItem[] = [
 ];
 
 export const stats = [
-  { num: "120+", label: "Digital products delivered" },
+  { num: "70+", label: "Digital products delivered" },
   { num: "23+", label: "Countries supported" },
   { num: "98%", label: "Client satisfaction" },
-  { num: "15+", label: "Years of excellence" },
+  { num: "5+", label: "Years of excellence" },
 ];
 
 export const blogPosts = [

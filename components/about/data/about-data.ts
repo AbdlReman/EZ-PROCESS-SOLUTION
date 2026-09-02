@@ -19,10 +19,10 @@ export const aboutStoryHighlights: [string, string][] = [
 ];
 
 export const aboutStats = [
-  { num: "120+", desc: "Digital products shipped" },
+  { num: "70+", desc: "Digital products shipped" },
   { num: "23+", desc: "Countries with active projects" },
   { num: "98%", desc: "Client satisfaction rate" },
-  { num: "15+", desc: "Years of cloud & software delivery" },
+  { num: "5+", desc: "Years of cloud & software delivery" },
   { num: "250+", desc: "Active enterprise clients" },
   { num: "50+", desc: "Senior engineers & designers" },
 ];
