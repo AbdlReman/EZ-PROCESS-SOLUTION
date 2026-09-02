@@ -8,7 +8,7 @@ export default function HomeTestimonialsSection() {
           {/* Left — image */}
           <div className="clients-img-wrap">
             <Image
-              src="/images/uibanner-1.png"
+              src="/images/281.jpg"
               alt="Our Client Support Team"
               fill
               className="object-cover"

@@ -28,7 +28,7 @@ export default function HomeAboutSection() {
           <div className="about-img-wrap">
             <div className="about-img-inner">
               <Image
-                src="/images/webportfolio_2.png"
+                src="/images/service_4.jpeg"
                 alt="Our Team"
                 fill
                 className="object-cover"
