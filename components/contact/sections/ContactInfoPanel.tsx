@@ -85,7 +85,7 @@ export default function ContactInfoPanel() {
         ))}
       </div>
 
-      <div style={{
+      {/* <div style={{
         position: "relative",
         overflow: "hidden",
         borderRadius: "1.25rem",
@@ -104,7 +104,7 @@ export default function ContactInfoPanel() {
             Trusted by 250+ companies worldwide
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
