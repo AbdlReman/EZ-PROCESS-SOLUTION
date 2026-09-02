@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import { getAllBlogPosts } from "@/lib/models/blog";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog | EZ Process Solution",
   description:

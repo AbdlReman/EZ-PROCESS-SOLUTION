@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllServices } from "@/lib/models/service";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Services | EZ Process Solution",
   description: "End-to-end technology services — web, mobile, AI, cloud, design, and strategy.",
