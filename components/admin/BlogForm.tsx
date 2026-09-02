@@ -5,6 +5,7 @@ import { useActionState } from "react";
 import type { BlogPost } from "@/lib/models/blog";
 import type { ActionState } from "@/lib/actions/types";
 import ImageUploadField from "./ImageUploadField";
+import RichTextEditor from "./RichTextEditor";
 
 type BlogFormAction = (prevState: ActionState, formData: FormData) => Promise<ActionState>;
 
@@ -90,8 +91,8 @@ export default function BlogForm({
         </div>
 
         <div className="brelyx-form-group">
-          <label className="brelyx-form-label" htmlFor="content">Content</label>
-          <textarea id="content" name="content" className="brelyx-textarea" style={{ minHeight: 260 }} defaultValue={initial?.content} />
+          <label className="brelyx-form-label">Content</label>
+          <RichTextEditor name="content" defaultValue={initial?.content} />
         </div>
       </div>
 
