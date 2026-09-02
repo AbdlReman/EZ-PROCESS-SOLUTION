@@ -47,7 +47,11 @@ export default function RichTextEditor({
         init={{
           height: 400,
           menubar: false,
-          plugins: ["link", "lists", "image", "blockquote", "code", "hr"],
+          // "blockquote" and "hr" are core TinyMCE 6+ commands, not
+          // separately-loadable plugins — listing them here makes TinyMCE
+          // try (and fail with a 404) to fetch a nonexistent plugin script.
+          // Their toolbar buttons below still work without being listed here.
+          plugins: ["link", "lists", "image", "code"],
           toolbar:
             "undo redo | blocks | bold italic | bullist numlist blockquote | link image | hr | code",
           content_style: "body { font-family: sans-serif; font-size: 15px; }",
