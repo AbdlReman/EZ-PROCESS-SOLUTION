@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useActionState } from "react";
 import type { BlogPost } from "@/lib/models/blog";
 import type { ActionState } from "@/lib/actions/types";
+import { useSlugField } from "@/lib/hooks/useSlugField";
 import ImageUploadField from "./ImageUploadField";
 import RichTextEditor from "./RichTextEditor";
 
@@ -24,6 +25,7 @@ export default function BlogForm({
   initial?: BlogPost;
 }) {
   const [state, formAction, pending] = useActionState(action, undefined);
+  const { slug, onTitleChange, onSlugChange } = useSlugField(initial?.slug);
 
   return (
     <form action={formAction} className="ez-admin-form-card">
@@ -35,12 +37,26 @@ export default function BlogForm({
 
         <div className="brelyx-form-group">
           <label className="brelyx-form-label" htmlFor="title">Title</label>
-          <input id="title" name="title" className="brelyx-input" defaultValue={initial?.title} required />
+          <input
+            id="title"
+            name="title"
+            className="brelyx-input"
+            defaultValue={initial?.title}
+            onChange={(e) => onTitleChange(e.target.value)}
+            required
+          />
         </div>
 
         <div className="brelyx-form-group">
           <label className="brelyx-form-label" htmlFor="slug">Slug (URL path)</label>
-          <input id="slug" name="slug" className="brelyx-input" defaultValue={initial?.slug} required />
+          <input
+            id="slug"
+            name="slug"
+            className="brelyx-input"
+            value={slug}
+            onChange={(e) => onSlugChange(e.target.value)}
+            required
+          />
         </div>
 
         <div className="brelyx-form-group">

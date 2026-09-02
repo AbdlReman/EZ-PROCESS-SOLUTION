@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeRichHtml } from "@/lib/sanitizeHtml";
 
 /**
  * Renders sanitized rich-text HTML (from the admin rich text editor) with
@@ -11,6 +11,6 @@ export default function RichContent({
   html: string;
   className?: string;
 }) {
-  const clean = DOMPurify.sanitize(html);
+  const clean = sanitizeRichHtml(html);
   return <div className={className} dangerouslySetInnerHTML={{ __html: clean }} />;
 }

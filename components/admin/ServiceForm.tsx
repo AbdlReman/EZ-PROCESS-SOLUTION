@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useActionState } from "react";
 import type { ServiceDetail } from "@/lib/models/service";
 import type { ActionState } from "@/lib/actions/types";
+import { useSlugField } from "@/lib/hooks/useSlugField";
 import ImageUploadField from "./ImageUploadField";
 import RichTextEditor from "./RichTextEditor";
 
@@ -17,6 +18,7 @@ export default function ServiceForm({
   initial?: ServiceDetail;
 }) {
   const [state, formAction, pending] = useActionState(action, undefined);
+  const { slug, onTitleChange, onSlugChange } = useSlugField(initial?.slug);
 
   const processDefault = initial?.process
     ?.map((step) => `${step.title} | ${step.desc}`)
@@ -33,11 +35,25 @@ export default function ServiceForm({
         <div className="ez-admin-form-row">
           <div className="brelyx-form-group">
             <label className="brelyx-form-label" htmlFor="title">Title</label>
-            <input id="title" name="title" className="brelyx-input" defaultValue={initial?.title} required />
+            <input
+              id="title"
+              name="title"
+              className="brelyx-input"
+              defaultValue={initial?.title}
+              onChange={(e) => onTitleChange(e.target.value)}
+              required
+            />
           </div>
           <div className="brelyx-form-group">
             <label className="brelyx-form-label" htmlFor="slug">Slug (URL path, e.g. web-custom-software)</label>
-            <input id="slug" name="slug" className="brelyx-input" defaultValue={initial?.slug} required />
+            <input
+              id="slug"
+              name="slug"
+              className="brelyx-input"
+              value={slug}
+              onChange={(e) => onSlugChange(e.target.value)}
+              required
+            />
           </div>
           <div className="brelyx-form-group">
             <label className="brelyx-form-label" htmlFor="tagline">Tagline</label>
