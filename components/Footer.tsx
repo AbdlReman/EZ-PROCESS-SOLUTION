@@ -73,10 +73,10 @@ export default function Footer() {
               </li>
               <li className="footer-contact-row">
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" className="footer-contact-icon">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8" />
-                  <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" stroke="currentColor" strokeWidth="1.8" />
+                  <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                  <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.8" />
                 </svg>
-                <span className="footer-contact-text">Pakistan</span>
+                <span className="footer-contact-text">3217 Blackstone Run, Lawrenceville, GA 30043</span>
               </li>
             </ul>
             <Link href="/contact" className="lt-btn" style={{ fontSize: "0.82rem", padding: "0.7rem 1.25rem", justifyContent: "center" }}>
