@@ -1,7 +1,7 @@
 import DOMPurify from "isomorphic-dompurify";
 
 /**
- * Renders sanitized rich-text HTML (from a TinyMCE-backed admin field) with
+ * Renders sanitized rich-text HTML (from the admin rich text editor) with
  * the shared "article body" typography used across detail pages.
  */
 export default function RichContent({

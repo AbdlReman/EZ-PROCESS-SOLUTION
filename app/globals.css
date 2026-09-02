@@ -4383,6 +4383,94 @@ body {
 
 .ez-admin-btn-sm { padding: 0.58rem 1.15rem !important; font-size: 0.8rem !important; }
 
+/* ━━━ Rich text editor ━━━ */
+
+.ez-editor-shell {
+  border-radius: 0.9rem;
+  border: 1px solid var(--ez-admin-border);
+  background: rgba(4,7,32,0.5);
+  overflow: hidden;
+}
+.ez-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--ez-admin-border);
+  background: rgba(7,10,42,0.5);
+}
+.ez-editor-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--ez-admin-border);
+  margin: 0 0.15rem;
+}
+.ez-editor-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ez-admin-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.ez-editor-btn:hover { border-color: rgba(108,76,255,0.5); color: #e8eeff; background: rgba(108,76,255,0.08); }
+.ez-editor-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.ez-editor-btn:disabled:hover { border-color: transparent; background: transparent; color: var(--ez-admin-text-muted); }
+.ez-editor-btn.active { border-color: rgba(63,224,208,0.5); color: var(--ez-admin-accent); background: rgba(63,224,208,0.08); }
+.ez-editor-select {
+  height: 30px;
+  border-radius: 0.5rem;
+  border: 1px solid var(--ez-admin-border);
+  background: rgba(4,7,32,0.9);
+  color: var(--ez-admin-text-muted);
+  font-size: 0.78rem;
+  padding: 0 0.4rem;
+  cursor: pointer;
+}
+.ez-editor-content {
+  min-height: 400px;
+  max-height: 650px;
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  color: #e8eeff;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.ez-editor-content .ProseMirror { outline: none; min-height: 380px; }
+.ez-editor-content p { margin: 0 0 0.85em; }
+.ez-editor-content h1, .ez-editor-content h2, .ez-editor-content h3 { color: #fff; margin: 1em 0 0.5em; line-height: 1.3; }
+.ez-editor-content ul, .ez-editor-content ol { padding-left: 1.4em; margin: 0 0 0.85em; }
+.ez-editor-content blockquote { border-left: 3px solid var(--ez-admin-primary); margin: 0 0 0.85em; padding-left: 1em; color: var(--ez-admin-text-muted); }
+.ez-editor-content img { max-width: 100%; border-radius: 0.5rem; }
+.ez-editor-content a { color: var(--ez-admin-accent); }
+.ez-editor-content code { background: rgba(255,255,255,0.08); padding: 0.15em 0.4em; border-radius: 0.3em; font-size: 0.85em; }
+.ez-editor-content pre { background: rgba(0,0,0,0.35); padding: 0.85em; border-radius: 0.6rem; overflow-x: auto; }
+.ez-editor-content pre code { background: none; padding: 0; }
+.ez-editor-content hr { border: none; border-top: 1px solid var(--ez-admin-border); margin: 1.5em 0; }
+.ez-editor-source {
+  width: 100%;
+  min-height: 400px;
+  max-height: 650px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  background: rgba(0,0,0,0.35);
+  color: #c8cfe8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  padding: 1rem 1.1rem;
+}
+
 /* ── Contact form — interactive states ─────────────────── */
 .lt-chip-btn.active {
   background: #6C4CFF;
