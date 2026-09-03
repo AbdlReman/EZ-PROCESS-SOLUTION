@@ -1,9 +1,12 @@
 ﻿import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AppChrome from "@/components/layout/AppChrome";
 import AuthProvider from "@/components/providers/AuthProvider";
 import { DEFAULT_KEYWORDS, SITE_NAME, SITE_URL, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+
+const GA_MEASUREMENT_ID = "G-FG49VZZ8EV";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +51,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <AuthProvider>
           <AppChrome>{children}</AppChrome>
         </AuthProvider>
