@@ -43,7 +43,6 @@ export default function HomeCaseStudiesSection() {
               alt={cs.title}
               fill
               className="object-cover object-top transition-all duration-500"
-              priority
             />
           </div>
         </div>

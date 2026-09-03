@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailContent from "@/components/blog/BlogDetailContent";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/models/blog";
-import { buildMetadata } from "@/lib/seo";
+import { blogPostingJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -34,5 +35,17 @@ export default async function BlogDetailPage({
   const allPosts = await getAllBlogPosts();
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
-  return <BlogDetailContent post={post} relatedPosts={relatedPosts} />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
+      <JsonLd data={blogPostingJsonLd(post)} />
+      <BlogDetailContent post={post} relatedPosts={relatedPosts} />
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 ﻿import AboutContent from "@/components/about/AboutContent";
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = buildMetadata({
   title: "About Us",
@@ -10,5 +11,10 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function AboutPage() {
-  return <AboutContent />;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
+      <AboutContent />
+    </>
+  );
 }

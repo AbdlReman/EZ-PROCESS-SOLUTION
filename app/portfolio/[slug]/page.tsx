@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PortfolioDetailContent from "@/components/portfolio/PortfolioDetailContent";
 import { getProjectBySlug } from "@/lib/models/project";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata, creativeWorkJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export async function generateMetadata({
   params,
@@ -17,7 +18,6 @@ export async function generateMetadata({
     description: project.description,
     path: `/portfolio/${project.slug}`,
     image: project.image,
-    type: "article",
     keywords: [project.category, project.title, ...project.tech],
   });
 }
@@ -30,5 +30,17 @@ export default async function ProjectDetailPage({
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
   if (!project) notFound();
-  return <PortfolioDetailContent project={project} />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Portfolio", path: "/portfolio" },
+          { name: project.title, path: `/portfolio/${project.slug}` },
+        ])}
+      />
+      <JsonLd data={creativeWorkJsonLd(project)} />
+      <PortfolioDetailContent project={project} />
+    </>
+  );
 }

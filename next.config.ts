@@ -20,6 +20,26 @@ const nextConfig: NextConfig = {
     // being resized/reformatted through Next's image proxy.
     unoptimized: true,
   },
+  async headers() {
+    // Conservative, crawl-safe headers only — no CSP here, since one broad
+    // enough to allow GA, the TinyMCE/Cloudinary admin uploads, and
+    // arbitrary externally-hosted image URLs would be too permissive to be
+    // worth adding, and a tight one risks silently breaking those features.
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

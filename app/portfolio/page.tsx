@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import PortfolioContent from "@/components/portfolio/PortfolioContent";
 import { getAllProjects } from "@/lib/models/project";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const dynamic = "force-dynamic";
 
@@ -14,5 +15,10 @@ export const metadata: Metadata = buildMetadata({
 
 export default async function PortfolioPage() {
   const projects = await getAllProjects();
-  return <PortfolioContent projects={projects} />;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Portfolio", path: "/portfolio" }])} />
+      <PortfolioContent projects={projects} />
+    </>
+  );
 }

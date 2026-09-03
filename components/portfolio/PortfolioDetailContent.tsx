@@ -58,7 +58,7 @@ export default function PortfolioDetailContent({ project }: { project: Project }
 
                 {project.detailImages && project.detailImages.length > 0 && (
                   <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
-                    {project.detailImages.map((img) => (
+                    {project.detailImages.map((img, index) => (
                       <div key={img} style={{
                         position: "relative",
                         width: "100%",
@@ -67,7 +67,7 @@ export default function PortfolioDetailContent({ project }: { project: Project }
                         overflow: "hidden",
                         border: "1px solid #E5E7EB",
                       }}>
-                        <Image src={img} alt={project.title} fill className="object-cover object-top" />
+                        <Image src={img} alt={`${project.title} — screenshot ${index + 1}`} fill className="object-cover object-top" />
                       </div>
                     ))}
                   </div>

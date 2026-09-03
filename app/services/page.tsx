@@ -2,7 +2,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllServices } from "@/lib/models/service";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +59,7 @@ export default async function ServicesPage() {
   const serviceDetails = await getAllServices();
   return (
     <div className="min-h-screen">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }])} />
       <main>
 
         {/* ── Hero ──────────────────────────────────────────── */}
