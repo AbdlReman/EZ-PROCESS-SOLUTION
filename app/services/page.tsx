@@ -111,10 +111,10 @@ export default async function ServicesPage() {
                       {svc.tagline}
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", paddingTop: "0.25rem" }}>
-                      {svc.tools.slice(0, 3).map((t) => (
+                      {(svc.tools ?? []).slice(0, 3).map((t) => (
                         <span key={t} className="lt-tech-tag">{t}</span>
                       ))}
-                      {svc.tools.length > 3 && (
+                      {(svc.tools?.length ?? 0) > 3 && (
                         <span className="lt-tech-tag">+{svc.tools.length - 3}</span>
                       )}
                     </div>

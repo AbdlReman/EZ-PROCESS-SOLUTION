@@ -45,7 +45,7 @@ export default function ServiceDetailContent({
                   <RichContent html={service.longDescription} />
                 </div>
 
-                {service.features.length > 0 && (
+                {(service.features?.length ?? 0) > 0 && (
                   <div style={{ marginBottom: "2.5rem" }}>
                     <div className="lt-sidebar-section-label">What&apos;s Included</div>
                     <ul style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -59,7 +59,7 @@ export default function ServiceDetailContent({
                   </div>
                 )}
 
-                {service.process.length > 0 && (
+                {(service.process?.length ?? 0) > 0 && (
                   <div>
                     <div className="lt-sidebar-section-label">Our Process</div>
                     <div className="lt-process-grid" style={{ display: "grid", gap: "1.25rem", gridTemplateColumns: "repeat(2, minmax(0,1fr))" }}>
@@ -79,7 +79,7 @@ export default function ServiceDetailContent({
 
               <aside>
                 <div className="lt-sidebar-card" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                  {service.deliverables.length > 0 && (
+                  {(service.deliverables?.length ?? 0) > 0 && (
                     <div>
                       <div className="lt-sidebar-section-label">Deliverables</div>
                       <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
@@ -89,7 +89,7 @@ export default function ServiceDetailContent({
                       </ul>
                     </div>
                   )}
-                  {service.tools.length > 0 && (
+                  {(service.tools?.length ?? 0) > 0 && (
                     <div>
                       <div className="lt-sidebar-section-label">Tools &amp; Tech</div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
@@ -134,7 +134,7 @@ export default function ServiceDetailContent({
                     <div className="lt-pricing-price">{pkg.price}</div>
                     {pkg.deliveryTime && <div className="lt-pricing-delivery">⏱ {pkg.deliveryTime}</div>}
                     <p className="lt-pricing-desc">{pkg.description}</p>
-                    {pkg.features.length > 0 && (
+                    {(pkg.features?.length ?? 0) > 0 && (
                       <ul className="lt-pricing-features">
                         {pkg.features.map((feature) => (
                           <li key={feature} className="lt-pricing-feature">

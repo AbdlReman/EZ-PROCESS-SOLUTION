@@ -35,7 +35,13 @@ function toProject(doc: ProjectDoc): Project {
   const { _id, createdAt, updatedAt, ...rest } = doc;
   void createdAt;
   void updatedAt;
-  return { id: _id!.toString(), ...rest };
+  return {
+    id: _id!.toString(),
+    ...rest,
+    detailImages: rest.detailImages ?? [],
+    tech: rest.tech ?? [],
+    features: rest.features ?? [],
+  };
 }
 
 export async function getAllProjects(): Promise<Project[]> {

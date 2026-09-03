@@ -40,7 +40,14 @@ function toService(doc: ServiceDoc): ServiceDetail {
   const { _id, createdAt, updatedAt, ...rest } = doc;
   void createdAt;
   void updatedAt;
-  return { id: _id!.toString(), ...rest };
+  return {
+    id: _id!.toString(),
+    ...rest,
+    features: rest.features ?? [],
+    deliverables: rest.deliverables ?? [],
+    tools: rest.tools ?? [],
+    process: rest.process ?? [],
+  };
 }
 
 export async function getAllServices(): Promise<ServiceDetail[]> {

@@ -31,7 +31,7 @@ function toPackage(doc: PackageDoc): ServicePackage {
   const { _id, createdAt, updatedAt, ...rest } = doc;
   void createdAt;
   void updatedAt;
-  return { id: _id!.toString(), ...rest };
+  return { id: _id!.toString(), ...rest, features: rest.features ?? [] };
 }
 
 export async function getAllPackages(): Promise<ServicePackage[]> {

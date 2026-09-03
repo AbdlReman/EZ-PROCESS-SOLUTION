@@ -63,10 +63,10 @@ export default function PortfolioGridSection({ projects }: { projects: Project[]
                   {project.tagline}
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", paddingTop: "0.25rem" }}>
-                  {project.tech.slice(0, 3).map((t) => (
+                  {(project.tech ?? []).slice(0, 3).map((t) => (
                     <span key={t} className="lt-tech-tag">{t}</span>
                   ))}
-                  {project.tech.length > 3 && (
+                  {(project.tech?.length ?? 0) > 3 && (
                     <span className="lt-tech-tag">+{project.tech.length - 3}</span>
                   )}
                 </div>

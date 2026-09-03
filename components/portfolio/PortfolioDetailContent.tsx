@@ -42,7 +42,7 @@ export default function PortfolioDetailContent({ project }: { project: Project }
                   <RichContent html={project.longDescription} />
                 </div>
 
-                {project.features.length > 0 && (
+                {(project.features?.length ?? 0) > 0 && (
                   <div style={{ marginBottom: "2rem" }}>
                     <div className="lt-sidebar-section-label">Key Features</div>
                     <ul style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -89,7 +89,7 @@ export default function PortfolioDetailContent({ project }: { project: Project }
                   <div>
                     <div className="lt-sidebar-section-label">Tech Stack</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                      {project.tech.map((t) => (
+                      {(project.tech ?? []).map((t) => (
                         <span key={t} className="lt-tech-tag">{t}</span>
                       ))}
                     </div>
