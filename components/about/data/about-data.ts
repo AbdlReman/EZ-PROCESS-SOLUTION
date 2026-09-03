@@ -7,7 +7,7 @@
 
 export const testimonials = [
   { quote: "EZ Process Solution transformed our outdated platform in under 8 weeks — an incredible feat our previous agency couldn't achieve in a year. The quality and speed were exceptional.", author: "Sarah K.", role: "CTO, FinanceFlow", image: "/images/281.jpg", company: "FinanceFlow", rating: 5 },
-  { quote: "Their team embedded seamlessly with ours. The quality of code, speed of delivery, and depth of expertise were exceptional across every sprint. I'd work with them again without hesitation.", author: "Marcus T.", role: "VP Engineering, MedTech", image: "/images/286.jpg", company: "MedTech Solutions", rating: 5 },
+  { quote: "Their team embedded seamlessly with ours. The quality of code, speed of delivery, and depth of expertise were exceptional across every sprint. I'd work with them again without hesitation.", author: "Marcus T.", role: "VP Engineering, MedTech", image: "/images/786.jpg", company: "MedTech Solutions", rating: 5 },
   { quote: "The AI reconciliation platform they built processes millions of records daily. What took weeks now runs in hours. Genuinely transformative — and a pleasure to work with.", author: "Aisha R.", role: "Director of Operations", image: "/images/287.jpg", company: "Grand Hotels Group", rating: 5 },
 ];
 

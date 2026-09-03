@@ -1,6 +1,9 @@
 ﻿import type { Metadata } from "next";
 import HomeContent from "@/components/home/HomeContent";
 import { buildMetadata } from "@/lib/seo";
+import { getAllProjects } from "@/lib/models/project";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = buildMetadata({
   title: "EZ Process Solution | Innovative IT & Digital Transformation Partner",
@@ -9,6 +12,10 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-export default function Home() {
-  return <HomeContent />;
+export default async function Home() {
+  // The rest of the homepage doesn't depend on the database — if it's
+  // briefly unreachable, degrade to hiding the projects carousel instead of
+  // taking the whole homepage down with it.
+  const projects = await getAllProjects().catch(() => []);
+  return <HomeContent projects={projects} />;
 }

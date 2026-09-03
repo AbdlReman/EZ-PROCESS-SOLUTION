@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Project } from "@/lib/models/project";
 import HomeAboutSection from "./sections/HomeAboutSection";
 import HomeBlogSection from "./sections/HomeBlogSection";
 import HomeCaseStudiesSection from "./sections/HomeCaseStudiesSection";
@@ -12,7 +13,7 @@ import HomeStatsSection from "./sections/HomeStatsSection";
 import HomeTestimonialsSection from "./sections/HomeTestimonialsSection";
 import HomeTechMarqueeSection from "./sections/HomeTechMarqueeSection";
 
-export default function HomeContent() {
+export default function HomeContent({ projects }: { projects: Project[] }) {
   return (
     <div className="min-h-screen">
       <main>
@@ -25,7 +26,7 @@ export default function HomeContent() {
         {/* 4. Services — 3 cards, middle highlighted */}
         <HomeServicesSection />
         {/* 5. Portfolio showcase with arrows */}
-        <HomeCaseStudiesSection />
+        <HomeCaseStudiesSection projects={projects} />
         {/* 6. CTA Banner */}
         <HomeCtaSection />
         {/* 7. Clients / Testimonial (2-col) */}

@@ -111,7 +111,7 @@ export default function HomeHeroSection() {
             </div>
             <div className="hero-screen-img">
               <Image
-                src="/images/286.jpg"
+                src="/images/786.jpg"
                 alt="EZ Process Solution — Digital Product"
                 fill
                 className="object-cover object-top"

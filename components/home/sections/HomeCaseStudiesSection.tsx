@@ -3,14 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { caseStudies } from "../data/home-data";
+import type { Project } from "@/lib/models/project";
 
-export default function HomeCaseStudiesSection() {
+export default function HomeCaseStudiesSection({ projects }: { projects: Project[] }) {
+  const featured = projects.slice(0, 6);
   const [active, setActive] = useState(0);
-  const cs = caseStudies[active];
 
-  const prev = () => setActive((a) => (a - 1 + caseStudies.length) % caseStudies.length);
-  const next = () => setActive((a) => (a + 1) % caseStudies.length);
+  if (featured.length === 0) return null;
+
+  const cs = featured[active];
+  const prev = () => setActive((a) => (a - 1 + featured.length) % featured.length);
+  const next = () => setActive((a) => (a + 1) % featured.length);
 
   return (
     <section className="lt-section">
@@ -51,12 +54,12 @@ export default function HomeCaseStudiesSection() {
         <div className="lt-proj-caption">
           <div className="lt-proj-dot" />
           <div>
-            <div className="lt-proj-label">{cs.tag}</div>
+            <div className="lt-proj-label">{cs.category}</div>
             <div className="lt-proj-desc">{cs.title}</div>
           </div>
           <div style={{ marginLeft: "auto", flexShrink: 0 }}>
             <Link
-              href="/portfolio"
+              href={`/portfolio/${cs.slug}`}
               style={{ fontSize: "0.82rem", fontWeight: 600, color: "#6C4CFF", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}
             >
               View Project →
@@ -66,7 +69,7 @@ export default function HomeCaseStudiesSection() {
 
         {/* Dot nav */}
         <div style={{ display: "flex", justifyContent: "center", gap: "0.6rem", marginTop: "2rem" }}>
-          {caseStudies.map((_, i) => (
+          {featured.map((_, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
