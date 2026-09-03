@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogDetailContent from "@/components/blog/BlogDetailContent";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/models/blog";
+import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -11,10 +12,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
-  return {
-    title: `${post.title} | EZ Process Solution`,
+  return buildMetadata({
+    title: post.title,
     description: post.excerpt,
-  };
+    path: `/blog/${post.slug}`,
+    image: post.image,
+    type: "article",
+    keywords: [post.category, post.title],
+  });
 }
 
 export default async function BlogDetailPage({

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ServiceDetailContent from "@/components/services/ServiceDetailContent";
 import { getServiceBySlug } from "@/lib/models/service";
 import { getPackagesByServiceId } from "@/lib/models/package";
+import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = await getServiceBySlug(slug);
   if (!service) return {};
-  return {
-    title: `${service.title} | EZ Process Solution`,
+  return buildMetadata({
+    title: service.title,
     description: service.description,
-  };
+    path: `/services/${service.slug}`,
+    image: service.image,
+    type: "article",
+    keywords: [service.category, service.title],
+  });
 }
 
 export default async function ServiceDetailPage({

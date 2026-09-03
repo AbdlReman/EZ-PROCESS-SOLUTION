@@ -2,13 +2,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllServices } from "@/lib/models/service";
+import { buildMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Services | EZ Process Solution",
+export const metadata: Metadata = buildMetadata({
+  title: "Services",
   description: "End-to-end technology services — web, mobile, AI, cloud, design, and strategy.",
-};
+  path: "/services",
+});
 
 const whyUs = [
   {
