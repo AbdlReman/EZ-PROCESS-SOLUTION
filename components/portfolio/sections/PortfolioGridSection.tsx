@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import type { Project } from "@/lib/models/project";
 
 export default function PortfolioGridSection({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const portfolioCategories = useMemo(
     () => ["All", ...Array.from(new Set(projects.map((p) => p.category)))],
@@ -22,16 +23,33 @@ export default function PortfolioGridSection({ projects }: { projects: Project[]
     <section className="lt-section">
       <div className="brelyx-container">
 
-        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0.625rem", marginBottom: "3.5rem" }}>
-          {portfolioCategories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`lt-filter-tab${activeCategory === cat ? " active" : ""}`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="lt-filter-bar">
+          <button
+            type="button"
+            className="lt-filter-toggle"
+            aria-expanded={filterOpen}
+            onClick={() => setFilterOpen((v) => !v)}
+          >
+            <span>Filter: {activeCategory}</span>
+            <svg className="lt-filter-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          <div className={`lt-filter-tabs${filterOpen ? " lt-filter-tabs--open" : ""}`}>
+            {portfolioCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setFilterOpen(false);
+                }}
+                className={`lt-filter-tab${activeCategory === cat ? " active" : ""}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div style={{ display: "grid", gap: "1.75rem", gridTemplateColumns: "repeat(3, minmax(0,1fr))" }}

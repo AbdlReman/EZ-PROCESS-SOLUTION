@@ -3502,6 +3502,43 @@ body {
   color: #ffffff;
 }
 
+/* ── Filter bar / mobile toggle ────────────────────────── */
+.lt-filter-bar { margin-bottom: 3.5rem; }
+.lt-filter-toggle { display: none; }
+.lt-filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+@media (max-width: 639px) {
+  .lt-filter-bar { margin-bottom: 1.75rem; }
+  .lt-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.1rem;
+    border-radius: 0.85rem;
+    border: 1.5px solid #E5E7EB;
+    background: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #374151;
+    cursor: pointer;
+  }
+  .lt-filter-toggle-chevron { transition: transform 0.2s; flex-shrink: 0; }
+  .lt-filter-toggle[aria-expanded="true"] .lt-filter-toggle-chevron { transform: rotate(180deg); }
+  .lt-filter-toggle[aria-expanded="true"] { border-color: #93E2F9; color: #6C4CFF; }
+  .lt-filter-tabs {
+    display: none;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .lt-filter-tabs.lt-filter-tabs--open { display: flex; }
+}
+
 /* ── Portfolio / blog card (light) ──────────────────────── */
 .lt-card {
   border-radius: 1.25rem;
