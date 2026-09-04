@@ -14,9 +14,27 @@ export default function Footer() {
               Designing and delivering technology that keeps you ahead of the curve.
             </p>
             <div className="footer-socials">
-              {([ ["in", "LinkedIn"], ["tw", "Twitter"], ["gh", "GitHub"], ["yt", "YouTube"] ] as [string, string][]).map(([label, title]) => (
-                <a key={label} href="#" title={title} className="brelyx-social-link">{label}</a>
-              ))}
+              {([
+                ["in", "LinkedIn", "#"],
+                ["x", "X (Twitter)", "https://x.com/ezprocesssol"],
+                ["gh", "GitHub", "#"],
+                ["yt", "YouTube", "https://www.youtube.com/@EZPROCESSSOLUTION"],
+                ["ig", "Instagram", "https://www.instagram.com/ezprocesssolution/"],
+                ["wa", "WhatsApp", "https://wa.me/18433091515"],
+              ] as [string, string, string][]).map(([label, title, href]) => {
+                const external = href !== "#";
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    title={title}
+                    className="brelyx-social-link"
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {label}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
