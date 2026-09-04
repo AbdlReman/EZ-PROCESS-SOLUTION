@@ -15,9 +15,9 @@ export default function Footer() {
             </p>
             <div className="footer-socials">
               {([
-                ["in", "LinkedIn", "#"],
+               
                 ["x", "X (Twitter)", "https://x.com/ezprocesssol"],
-                ["gh", "GitHub", "#"],
+                // ["gh", "GitHub", "#"],
                 ["yt", "YouTube", "https://www.youtube.com/@EZPROCESSSOLUTION"],
                 ["ig", "Instagram", "https://www.instagram.com/ezprocesssolution/"],
                 ["wa", "WhatsApp", "https://wa.me/18433091515"],
