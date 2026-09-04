@@ -75,6 +75,22 @@ export default async function AdminMessageDetailPage({
               </div>
               <div style={{ fontSize: "0.86rem", color: "#e8eeff" }}>{formatDate(message.createdAt)}</div>
             </div>
+            {message.package && (
+              <div>
+                <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--ez-admin-text-dim)", fontWeight: 700, marginBottom: "0.35rem" }}>
+                  Package
+                </div>
+                <div style={{ fontSize: "0.86rem", color: "#e8eeff" }}>📦 {message.package}</div>
+              </div>
+            )}
+            {message.source && (
+              <div>
+                <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--ez-admin-text-dim)", fontWeight: 700, marginBottom: "0.35rem" }}>
+                  Source
+                </div>
+                <div style={{ fontSize: "0.86rem", color: "#e8eeff" }}>{message.source}</div>
+              </div>
+            )}
           </div>
 
           {message.services.length > 0 && (

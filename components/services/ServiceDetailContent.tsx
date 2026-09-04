@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ServiceDetail } from "@/lib/models/service";
 import type { ServicePackage } from "@/lib/models/package";
 import RichContent from "@/components/RichContent";
+import QuickInquiryButton from "@/components/contact/QuickInquiryButton";
 
 export default function ServiceDetailContent({
   service,
@@ -20,7 +21,14 @@ export default function ServiceDetailContent({
             <div className="hero-p-badge">● {service.category}</div>
             <h1 className="slug-h1">{service.title}</h1>
             <p className="hero-p-sub">{service.tagline}</p>
-            <Link href="/contact" className="hero-p-btn">Start a Project →</Link>
+            <QuickInquiryButton
+              className="hero-p-btn"
+              source="Service"
+              serviceName={service.title}
+              defaultMessage={`I'm interested in ${service.title}. `}
+            >
+              Start a Project →
+            </QuickInquiryButton>
           </div>
         </section>
 
@@ -104,9 +112,15 @@ export default function ServiceDetailContent({
                       <p className="lt-quote-text">{service.highlight}</p>
                     </div>
                   )}
-                  <Link href="/contact" className="lt-btn" style={{ justifyContent: "center" }}>
+                  <QuickInquiryButton
+                    className="lt-btn"
+                    style={{ justifyContent: "center" }}
+                    source="Service"
+                    serviceName={service.title}
+                    defaultMessage={`I'm interested in ${service.title}. `}
+                  >
                     Get Started →
-                  </Link>
+                  </QuickInquiryButton>
                   <Link href="/services" style={{ fontSize: "0.85rem", color: "#6C4CFF", fontWeight: 600, textDecoration: "none", textAlign: "center" }}>
                     ← Back to Services
                   </Link>
@@ -144,9 +158,16 @@ export default function ServiceDetailContent({
                         ))}
                       </ul>
                     )}
-                    <Link href="/contact" className="lt-btn" style={{ justifyContent: "center" }}>
+                    <QuickInquiryButton
+                      className="lt-btn"
+                      style={{ justifyContent: "center" }}
+                      source="Package"
+                      serviceName={service.title}
+                      packageName={pkg.name}
+                      defaultMessage={`I'm interested in the ${pkg.name} package (${pkg.price}) for ${service.title}.`}
+                    >
                       Get Started →
-                    </Link>
+                    </QuickInquiryButton>
                   </div>
                 ))}
               </div>

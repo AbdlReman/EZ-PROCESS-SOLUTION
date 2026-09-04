@@ -18,6 +18,8 @@ export async function submitContactMessage(
   const company = optionalString(formData, "company");
   const budget = optionalString(formData, "budget");
   const services = formData.getAll("services").map((v) => String(v)).filter(Boolean);
+  const source = optionalString(formData, "source");
+  const pkg = optionalString(formData, "package");
 
   if (!name || !email || !message) {
     return { error: "Please fill in your name, email, and project details." };
@@ -27,7 +29,7 @@ export async function submitContactMessage(
   }
 
   try {
-    await createMessage({ name, email, company, budget, services, message });
+    await createMessage({ name, email, company, budget, services, source, package: pkg, message });
   } catch (err) {
     return { error: err instanceof Error ? err.message : "Something went wrong. Please try again." };
   }

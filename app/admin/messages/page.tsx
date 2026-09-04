@@ -22,6 +22,8 @@ export default async function AdminMessagesPage() {
     email: m.email,
     company: m.company,
     services: m.services,
+    source: m.source,
+    package: m.package,
     preview: m.message.length > 140 ? `${m.message.slice(0, 140)}…` : m.message,
     dateLabel: formatDate(m.createdAt),
     read: m.read,

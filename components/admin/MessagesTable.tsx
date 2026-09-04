@@ -11,6 +11,8 @@ export type MessageRow = {
   email: string;
   company?: string;
   services: string[];
+  source?: string;
+  package?: string;
   preview: string;
   dateLabel: string;
   read: boolean;
@@ -94,13 +96,19 @@ export default function MessagesTable({ items }: { items: MessageRow[] }) {
                     </span>
                   </td>
                   <td>
-                    {m.services.length === 0 ? (
-                      <span style={{ color: "var(--ez-admin-text-dim)", fontSize: "0.78rem" }}>—</span>
-                    ) : (
-                      <span className="ez-admin-badge">
-                        {m.services[0]}{m.services.length > 1 ? ` +${m.services.length - 1}` : ""}
-                      </span>
-                    )}
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                      {m.package ? (
+                        <span className="ez-admin-badge" style={{ background: "rgba(108,76,255,0.14)" }}>
+                          📦 {m.package}
+                        </span>
+                      ) : m.services.length > 0 ? (
+                        <span className="ez-admin-badge">
+                          {m.services[0]}{m.services.length > 1 ? ` +${m.services.length - 1}` : ""}
+                        </span>
+                      ) : (
+                        <span style={{ color: "var(--ez-admin-text-dim)", fontSize: "0.78rem" }}>—</span>
+                      )}
+                    </div>
                   </td>
                   <td style={{ color: "var(--ez-admin-text-dim)", fontSize: "0.82rem", whiteSpace: "nowrap" }}>{m.dateLabel}</td>
                   <td>

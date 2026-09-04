@@ -8,6 +8,10 @@ export interface Message {
   company?: string;
   budget?: string;
   services: string[];
+  /** Where the inquiry originated: "Service", "Package", or "General" (default contact form). */
+  source?: string;
+  /** Name of the specific package the lead clicked "Get Started" on, if any. */
+  package?: string;
   message: string;
   read: boolean;
   createdAt: string;
@@ -19,6 +23,8 @@ export type MessageInput = {
   company?: string;
   budget?: string;
   services: string[];
+  source?: string;
+  package?: string;
   message: string;
 };
 
@@ -29,6 +35,8 @@ interface MessageDoc {
   company?: string;
   budget?: string;
   services: string[];
+  source?: string;
+  package?: string;
   message: string;
   read: boolean;
   createdAt: Date;

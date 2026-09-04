@@ -67,6 +67,7 @@ export default function ContactFormPanel() {
       </p>
 
       <form ref={formRef} action={formAction} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+        <input type="hidden" name="source" value="General" />
         <div style={{ display: "grid", gap: "1.25rem", gridTemplateColumns: "1fr 1fr" }} className="lt-form-2col">
           <div>
             <label className="lt-form-label">Full Name <span style={{ color: "#6C4CFF" }}>*</span></label>
