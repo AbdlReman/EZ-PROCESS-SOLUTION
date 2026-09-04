@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { submitContactMessage, type ContactActionState } from "@/lib/actions/contact";
 
 const budgetOptions = ["Under $10K", "$10K – $50K", "$50K – $150K", "$150K – $500K", "$500K+"] as const;
@@ -51,7 +52,7 @@ export default function QuickInquiryModal({
     ? `Inquiring about "${serviceName}"`
     : undefined;
 
-  return (
+  return createPortal(
     <div className="qi-overlay" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="qi-modal lt-form-card" role="dialog" aria-modal="true" aria-label="Send an inquiry">
         <button type="button" className="qi-close" onClick={onClose} aria-label="Close">
@@ -162,6 +163,7 @@ export default function QuickInquiryModal({
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
