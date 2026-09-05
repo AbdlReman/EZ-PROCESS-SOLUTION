@@ -110,7 +110,8 @@ export default function Footer() {
             {([
               ["Terms of Service", "/terms-of-service"],
               ["Privacy Policy", "/privacy-policy"],
-             
+              ["Refund & Cancellation Policy", "/refund-policy"],
+              ["Client Agreement", "/client-agreement"],
             ] as [string, string][]).map(([label, href]) => (
               <Link key={label} href={href} className="brelyx-footer-link">{label}</Link>
             ))}
