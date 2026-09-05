@@ -104,6 +104,17 @@ export default function Footer() {
 
         </div>
 
+        <div className="footer-payments-bar">
+          <span className="footer-payments-label">Cards Accepted</span>
+          <Image
+            src="/images/payment-cards-row.png"
+            alt="Visa, Mastercard, American Express, and Discover accepted"
+            width={588}
+            height={86}
+            className="footer-payments-img"
+          />
+        </div>
+
         <div className="footer-bottom-bar">
           <p className="footer-bottom-text">© {new Date().getFullYear()} EZ Process Solution LLC. All rights reserved.</p>
           <div className="footer-bottom-links">

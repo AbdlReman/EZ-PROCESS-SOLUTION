@@ -1522,6 +1522,41 @@ body {
   font-size: 0.72rem;
 }
 
+.footer-payments-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-payments-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8892aa;
+  white-space: nowrap;
+}
+.footer-payments-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+@media (max-width: 639px) {
+  .footer-payments-bar {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.9rem;
+  }
+  .footer-payments-img {
+  height: 48px;
+  
+}
+}
+
 @media (min-width: 640px) {
   .footer-bottom-bar {
     flex-direction: row;
