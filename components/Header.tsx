@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
+import LetsTalkButton from "@/components/LetsTalkButton";
 
 const navLinks: [string, string][] = [
   ["Services", "/services"],
@@ -68,9 +69,7 @@ export default function Header() {
               Login
             </Link>
           )}
-          <Link href="/contact" onClick={() => setMenuOpen(false)} className="brelyx-btn-talk">
-            Let&apos;s Talk
-          </Link>
+          <LetsTalkButton onOptionSelect={() => setMenuOpen(false)} />
         </div>
       </div>
 
@@ -120,9 +119,7 @@ export default function Header() {
                 Login
               </Link>
             )}
-            <Link href="/contact" className="brelyx-btn-talk hidden md:inline-flex">
-              Let&apos;s Talk
-            </Link>
+            <LetsTalkButton wrapClassName="lt-talk-wrap hidden md:inline-flex" />
             <button
               className={`brelyx-hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}

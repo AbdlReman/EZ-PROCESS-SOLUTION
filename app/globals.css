@@ -1351,6 +1351,63 @@ body {
   box-shadow: 0 10px 24px rgba(108,76,255,0.16);
 }
 
+.lt-talk-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.lt-talk-popover {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  z-index: 50;
+  animation: lt-talk-pop 0.16s ease;
+}
+.lt-talk-popover .lt-talk-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 4.5rem;
+  padding: 0.65rem 0.4rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #374151;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.lt-talk-popover .lt-talk-option:hover {
+  background: #F3F4F6;
+  color: #111827;
+}
+.lt-talk-popover .lt-talk-option-icon {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.lt-talk-popover .lt-talk-option-icon.call { background: #6C4CFF; }
+.lt-talk-popover .lt-talk-option-icon.whatsapp { background: #25D366; }
+
+@keyframes lt-talk-pop {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px) scale(0.96); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
 /* ━━━ FOOTER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .brelyx-footer {
