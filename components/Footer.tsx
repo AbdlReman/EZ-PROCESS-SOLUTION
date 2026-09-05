@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom-bar">
-          <p className="footer-bottom-text">© {new Date().getFullYear()} EZ Process Solution. All rights reserved.</p>
+          <p className="footer-bottom-text">© {new Date().getFullYear()} EZ Process Solution LLC. All rights reserved.</p>
           <div className="footer-bottom-links">
             {([
               ["Terms of Service", "/terms-of-service"],
