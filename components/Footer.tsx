@@ -98,6 +98,7 @@ export default function Footer() {
             </ul>
           </div>
 
+
           {/* Contact */}
           <div className="footer-col">
             <p className="footer-heading">Contact</p>
