@@ -1,8 +1,20 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import { blogPosts } from "../data/home-data";
+import type { BlogPost } from "@/lib/models/blog";
 
-export default function HomeBlogSection() {
+function formatBlogDate(iso: string) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+
+export default function HomeBlogSection({ posts }: { posts: BlogPost[] }) {
+  if (posts.length === 0) return null;
+
   return (
     <section className="lt-section-alt">
       <div className="brelyx-container">
@@ -12,8 +24,8 @@ export default function HomeBlogSection() {
         </div>
 
         <div className="blog-grid">
-          {blogPosts.map((post) => (
-            <Link key={post.slug} href="/blog" className="blog-card">
+          {posts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
               <div className="blog-card-img">
                 <Image
                   src={post.image}
@@ -23,7 +35,7 @@ export default function HomeBlogSection() {
                 />
               </div>
               <div className="blog-card-body">
-                <div className="blog-date">{post.date}</div>
+                <div className="blog-date">{formatBlogDate(post.date)}</div>
                 <div className="blog-title">{post.title}</div>
                 <div className="blog-excerpt">{post.excerpt}</div>
                 <span className="blog-read-link">Read More →</span>

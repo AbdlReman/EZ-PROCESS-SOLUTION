@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import type { Project } from "@/lib/models/project";
+import type { BlogPost } from "@/lib/models/blog";
 import HomeAboutSection from "./sections/HomeAboutSection";
 import HomeBlogSection from "./sections/HomeBlogSection";
 import HomeCaseStudiesSection from "./sections/HomeCaseStudiesSection";
@@ -13,7 +14,7 @@ import HomeStatsSection from "./sections/HomeStatsSection";
 import HomeTestimonialsSection from "./sections/HomeTestimonialsSection";
 import HomeTechMarqueeSection from "./sections/HomeTechMarqueeSection";
 
-export default function HomeContent({ projects }: { projects: Project[] }) {
+export default function HomeContent({ projects, posts }: { projects: Project[]; posts: BlogPost[] }) {
   return (
     <div className="min-h-screen">
       <main>
@@ -36,7 +37,7 @@ export default function HomeContent({ projects }: { projects: Project[] }) {
         {/* 9. Industries */}
         <HomeIndustriesSection />
         {/* 10. Blog / News */}
-        <HomeBlogSection />
+        <HomeBlogSection posts={posts} />
         {/* 11. CTA Banner (repeat) */}
         <HomeCtaSection />
         {/* 12. FAQ */}

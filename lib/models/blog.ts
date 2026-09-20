@@ -41,6 +41,12 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
   return docs.map(toBlogPost);
 }
 
+export async function getLatestBlogPosts(limit: number): Promise<BlogPost[]> {
+  const collection = await blogCollection();
+  const docs = await collection.find().sort({ date: -1 }).limit(limit).toArray();
+  return docs.map(toBlogPost);
+}
+
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   const collection = await blogCollection();
   const doc = await collection.findOne({ slug });
