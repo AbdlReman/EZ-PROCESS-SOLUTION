@@ -2,7 +2,7 @@ import LegalPageLayout from "./LegalPageLayout";
 
 export default function RefundCancellationPolicyContent() {
   return (
-    <LegalPageLayout title="Refund & Cancellation Policy" lastUpdated="September 5, 2026">
+    <LegalPageLayout title="Refund & Cancellation Policy" lastUpdated="October 8, 2026">
       <p>
         This policy explains how refunds and cancellations work for software development, design, and consulting
         engagements with EZ Process Solution. We do not sell an automated consumer product through this website —
@@ -18,17 +18,26 @@ export default function RefundCancellationPolicyContent() {
         balance invoiced at agreed milestones, upon completion, or monthly for ongoing retainer work.
       </p>
 
+      <h2>30-day refund period</h2>
+      <p>
+        Any refund request must be submitted within 30 days of the relevant payment or invoice date. Requests made
+        after this 30-day period will not be eligible for a refund, except where a signed SOW or Client Agreement
+        states otherwise.
+      </p>
+
       <h2>Refunds before work begins</h2>
       <p>
         If you cancel before any work has started, your deposit is refunded in full, less any non-recoverable
-        payment processing fees already incurred.
+        payment processing fees already incurred, provided the cancellation is requested within the 30-day refund
+        period above.
       </p>
 
       <h2>Refunds after work begins</h2>
       <p>
         Once work has started, fees for work already performed and delivered are non-refundable. If a project is
         cancelled partway through, we will invoice only for the portion of work completed to date; any amount you
-        have prepaid beyond that point is refunded on a prorated basis.
+        have prepaid beyond that point is refunded on a prorated basis, provided the refund request is made within
+        the 30-day refund period above.
       </p>
 
       <h2>Retainers and recurring billing</h2>
