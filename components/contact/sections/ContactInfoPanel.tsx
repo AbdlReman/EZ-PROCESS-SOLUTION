@@ -82,16 +82,6 @@ export default function ContactInfoPanel() {
         Whether you have a project in mind — our team is ready to listen.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2.5rem" }}>
-        {infoCards.map(({ label, value, icon }) => (
-          <div key={label} className="lt-info-card">
-            <div className="lt-info-card-icon">{icon}</div>
-            <div className="lt-info-card-label">{label}</div>
-            <div className="lt-info-card-value">{value}</div>
-          </div>
-        ))}
-      </div>
-
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
         {directContacts.map(({ label, value, href, icon }) => (
           <a key={label} href={href} className="lt-location-row" style={{ color: "inherit", textDecoration: "none" }}>
@@ -117,6 +107,16 @@ export default function ContactInfoPanel() {
               <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#111827" }}>{city}</div>
               <div style={{ fontSize: "0.72rem", color: "#9CA3AF" }}>{detail}</div>
             </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2.5rem" }}>
+        {infoCards.map(({ label, value, icon }) => (
+          <div key={label} className="lt-info-card">
+            <div className="lt-info-card-icon">{icon}</div>
+            <div className="lt-info-card-label">{label}</div>
+            <div className="lt-info-card-value">{value}</div>
           </div>
         ))}
       </div>
