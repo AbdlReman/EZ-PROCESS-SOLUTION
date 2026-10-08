@@ -47,6 +47,30 @@ const offices = [
   { city: "3217 Blackstone Run, Lawrenceville, GA 30043", detail: "Head Office" },
 ] as const;
 
+const directContacts = [
+  {
+    label: "Customer Service Email",
+    value: "support@ezprocesssolution.com",
+    href: "mailto:support@ezprocesssolution.com",
+    icon: (
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M22 6l-10 7L2 6" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    ),
+  },
+  {
+    label: "Customer Service Phone",
+    value: "+1-843-309-1515",
+    href: "tel:+18433091515",
+    icon: (
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    ),
+  },
+] as const;
+
 export default function ContactInfoPanel() {
   return (
     <div>
@@ -65,6 +89,18 @@ export default function ContactInfoPanel() {
             <div className="lt-info-card-label">{label}</div>
             <div className="lt-info-card-value">{value}</div>
           </div>
+        ))}
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+        {directContacts.map(({ label, value, href, icon }) => (
+          <a key={label} href={href} className="lt-location-row" style={{ color: "inherit", textDecoration: "none" }}>
+            <div className="lt-location-icon">{icon}</div>
+            <div>
+              <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#111827" }}>{value}</div>
+              <div style={{ fontSize: "0.72rem", color: "#9CA3AF" }}>{label}</div>
+            </div>
+          </a>
         ))}
       </div>
 
