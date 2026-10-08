@@ -79,7 +79,7 @@ export default function ContactInfoPanel() {
         Multiple ways to reach us
       </h2>
       <p className="lt-lead" style={{ marginBottom: "2.5rem" }}>
-        Whether you have a project in mind or just want to explore possibilities — our team is ready to listen.
+        Whether you have a project in mind — our team is ready to listen.
       </p>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2.5rem" }}>
